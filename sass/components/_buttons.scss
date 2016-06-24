@@ -58,7 +58,8 @@
   transition: .2s ease-out;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $button-raised-background-hover;
     @extend .z-depth-1-half;
   }
