@@ -4,7 +4,9 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'css/materialize.css' : 'sass/*.scss'
+					'css/materialize.css' : 'sass/materialize.scss',
+					'css/core.css' : 'sass/core.scss',
+					'css/lato_fonts.css' : 'sass/lato_fonts.scss'
 				}
 			}
 		},

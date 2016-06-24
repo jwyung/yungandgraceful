@@ -1,0 +1,52 @@
+@import "components/prefixer";
+@import "components/color";
+
+// ********************************************************
+// *                       Utility                        *
+// ********************************************************
+
+%background-stretch {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;	
+}
+
+body {
+	font-family: "LatoWeb", sans-serif;
+}
+
+// ********************************************************
+// *                         Hero                         *
+// ********************************************************
+
+.hero {
+	background-image: url('../images/couple.jpg');
+	@extend %background-stretch;
+	position: relative;
+	height: 100vh;
+
+	.content {
+		position: absolute;
+		top: 100px;
+		left: 50%;
+		@include transform(translateX(-50%));
+		text-align: center;
+		color: color("blue-grey", "darken-2");
+	}
+
+	.title {
+		font-size: 60px;
+		margin-bottom: 18px;
+	}
+
+	.coming-soon {
+		font-size: 20px;
+		line-height: 38px;
+		border: 1px solid color("blue-grey", "darken-2");
+		border-radius: 5px;
+		display: inline-block;
+		padding-left: 11px;
+		padding-right: 12px;
+		padding-bottom: 1px;
+	}
+}
