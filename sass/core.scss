@@ -67,3 +67,43 @@ body {
 	font-size: 38px;
 	font-weight: 900;
 }
+
+.btn {
+	font-size: 17px;
+}
+
+
+.example {
+	.container {
+		overflow: hidden;
+	}
+
+	.image {
+		background-image: url('../images/master_chief_sword.jpg');
+		@extend %background-stretch;
+		width: 480px;
+		height: 270px;
+		float: left;
+		margin-right: 40px;
+		@include transform(translateY(17px));
+	}
+
+	.content {
+		width: 460px;
+		float: left;
+	}
+}
+
+.#gaming {
+	background-color: color("red", "lighten-5");
+}
+
+.#gaming-btn {
+	$example-button-background-color: color("red", "darken-2");
+	background-color: $example-button-background-color;
+
+	&:hover,
+	&:focus {
+		background-color: lighten($example-button-background-color, 5%);
+	}
+}
