@@ -1654,4 +1654,19 @@ body {
     padding-right: 12px;
     padding-bottom: 1px; }
 
+.container {
+  padding-top: 175px;
+  padding-bottom: 175px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 90%;
+  max-width: 980px;
+  font-family: "LatoWebLight";
+  font-size: 25px; }
+
+.title {
+  font-size: 38px;
+  font-weight: 900; }
+
 /*# sourceMappingURL=core.css.map */
