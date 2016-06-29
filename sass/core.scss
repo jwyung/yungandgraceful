@@ -125,3 +125,26 @@ $examples: (gaming, "red"),
 		}
 	}
 }
+
+.quote {
+	.description {
+		position: relative;
+		font-size: 35px;
+		padding: 60px 60px 0 60px;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			@include transform(translateX(-50%));
+			font-family: "Passion One", "LatoWeb", sans-serif;
+			font-size: 130px;
+			line-height: 0.72;
+			content: '"';
+			display: block;
+			color: color("orange", "lighten-3");;
+		}
+	}
+}
