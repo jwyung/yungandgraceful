@@ -92,18 +92,35 @@ body {
 		width: 460px;
 		float: left;
 	}
+
+	&.inverse {
+		.image {
+			float: right;
+			margin-left: 40px;
+			margin-right: 0;
+		}
+
+		.content {
+			float: right;
+		}
+	}
 }
 
-.#gaming {
-	background-color: color("red", "lighten-5");
-}
+$examples: (gaming, "red"),
+		   (weirdness, "purple");
 
-.#gaming-btn {
-	$example-button-background-color: color("red", "darken-2");
-	background-color: $example-button-background-color;
+@each $example, $color in $examples {
+	.#{$example} {
+		background-color: color($color, "lighten-5");
+	}
 
-	&:hover,
-	&:focus {
-		background-color: lighten($example-button-background-color, 5%);
+	.#{$example}-btn {
+		$example-button-background-color: color($color, "darken-2");
+		background-color: $example-button-background-color;
+
+		&:hover,
+		&:focus {
+			background-color: lighten($example-button-background-color, 5%);
+		}
 	}
 }
