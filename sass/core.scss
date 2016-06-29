@@ -107,7 +107,8 @@ body {
 }
 
 $examples: (gaming, "red"),
-		   (weirdness, "purple");
+		   (weirdness, "purple"),
+		   (road-trip, "indigo");
 
 @each $example, $color in $examples {
 	.#{$example} {

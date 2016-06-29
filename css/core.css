@@ -1711,4 +1711,12 @@ body {
   .weirdness-btn:hover, .weirdness-btn:focus {
     background-color: #8b23b7; }
 
+.road-trip {
+  background-color: #e8eaf6; }
+
+.road-trip-btn {
+  background-color: #303f9f; }
+  .road-trip-btn:hover, .road-trip-btn:focus {
+    background-color: #3647b3; }
+
 /*# sourceMappingURL=core.css.map */
