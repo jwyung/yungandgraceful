@@ -92,7 +92,112 @@
             </div>
         </section>
 
+        <section class="rsvp">
+            <div class="container">
+                <div class="content">
+                    <div class="title">RSVP</div>
+                    <p class="description">
+                        It's really happening!
+                    </p>
+                    <p class="muted-text">
+                        Well, now that we put down our non-refundable deposit, it <em>will</em> happen.
+                    </p>
+
+                    <form class="rsvp-form row" action="https://formspree.io/yungandgraceful@gmail.com" method="POST">
+                        <div class="g1 col s6">
+                            <fieldset>
+
+                                <div class="input-field col s6">
+                                    <input id="g1-first-name" class="input-text validate" name="g1-first-name" type="text" required>
+                                    <label class="input-label" for="g1-first-name">First Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="g1-last-name" class="input-text validate" name="g1-last-name" type="text" required>
+                                    <label class="input-label" for="g1-last-name">Last Name</label>
+                                </div>
+
+                                <fieldset class="guest-item col s12">
+                                    <legend>Will you attend?</legend>
+                                    <p>
+                                        <input id="g1-rsvp-yes" name="g1-rsvp" type="radio" value="yes" required>
+                                        <label class="guest-item-label" for="g1-rsvp-yes">Accepts with Pleasure</label>
+                                    </p>
+                                    <p>
+                                        <input id="g1-rsvp-no" name="g1-rsvp" type="radio" value="no" required>
+                                        <label class="guest-item-label" for="g1-rsvp-no">Declines with Regrets</label>
+                                    </p>
+                                </fieldset>
+
+                                <fieldset class="guest-item col s12">
+                                    <legend>Entree preference</legend>
+                                    <p>
+                                        <input id="g1-entree-poultry" name="g1-entree" type="radio" value="poultry" required>
+                                        <label class="guest-item-label" for="g1-entree-poultry">Poultry</label>
+                                    </p>
+                                    <p>
+                                        <input id="g1-entree-beef" name="g1-entree" type="radio" value="beef" required>
+                                        <label class="guest-item-label" for="g1-entree-beef">Beef</label>
+                                    </p>
+                                    <p>
+                                        <input id="g1-entree-veg" name="g1-entree" type="radio" value="veg" required>
+                                        <label class="guest-item-label" for="g1-entree-veg">Vegetarian</label>
+                                    </p>
+                                </fieldset>
+
+                            </fieldset>
+                        </div>
+
+                        <div class="g2 col s6">
+                            <fieldset>
+
+                                <div class="input-field col s6">
+                                    <input id="g2-first-name" class="input-text validate" name="g2-first-name" type="text">
+                                    <label class="input-label" for="g2-first-name">First Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="g2-last-name" class="input-text validate" name="g2-last-name" type="text">
+                                    <label class="input-label" for="g2-last-name">Last Name</label>
+                                </div>
+
+                                <fieldset class="guest-item col s12">
+                                    <legend>Will you attend?</legend>
+                                    <p>
+                                        <input id="g2-rsvp-yes" name="g2-rsvp" type="radio" value="yes" />
+                                        <label class="guest-item-label" for="g2-rsvp-yes">Accepts with Pleasure</label>
+                                    </p>
+                                    <p>
+                                        <input id="g2-rsvp-no" name="g2-rsvp" type="radio" value="no" />
+                                        <label class="guest-item-label" for="g2-rsvp-no">Declines with Regrets</label>
+                                    </p>
+                                </fieldset>
+
+                                <fieldset class="guest-item col s12">
+                                    <legend>Entree preference</legend>
+                                    <p>
+                                        <input id="g2-entree-poultry" name="g2-entree" type="radio" value="poultry" />
+                                        <label class="guest-item-label" for="g2-entree-poultry">Poultry</label>
+                                    </p>
+                                    <p>
+                                        <input id="g2-entree-beef" name="g2-entree" type="radio" value="beef" />
+                                        <label class="guest-item-label" for="g2-entree-beef">Beef</label>
+                                    </p>
+                                    <p>
+                                        <input id="g2-entree-veg" name="g2-entree" type="radio" value="veg" />
+                                        <label class="guest-item-label" for="g2-entree-veg">Vegetarian</label>
+                                    </p>
+                                </fieldset>
+
+                            </fieldset>
+                        </div>
+
+                        <button class="rsvp-btn waves-effect waves-light btn">RSVP</button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/bin/materialize.min.js"></script>
     </body>
 </html>
