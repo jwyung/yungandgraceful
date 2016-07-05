@@ -103,7 +103,7 @@
                         Well, now that we put down our non-refundable deposit, it <em>will</em> happen.
                     </p>
 
-                    <form class="rsvp-form row" action="https://formspree.io/yungandgraceful@gmail.com" method="POST">
+                    <form class="rsvp-form row">
                         <div class="g1 col s6">
                             <fieldset>
 
@@ -190,7 +190,10 @@
                             </fieldset>
                         </div>
 
-                        <button class="rsvp-btn waves-effect waves-light btn">RSVP</button>
+                        <div>
+                            <input type="hidden" name="_gotcha">
+                            <button class="rsvp-btn waves-effect waves-light btn">RSVP</button>
+                        </div>
                     </form>
 
                 </div>
@@ -199,5 +202,6 @@
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/bin/materialize.min.js"></script>
+        <script type="text/javascript" src="js/core.js"></script>
     </body>
 </html>
