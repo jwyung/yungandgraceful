@@ -1790,12 +1790,48 @@ fieldset {
   transform: translateY(-12px); }
 
 .rsvp-form {
+  position: relative;
+  z-index: 1;
   text-align: left;
   margin-top: 55px; }
   .rsvp-form .guest-item {
     margin-top: 40px; }
     .rsvp-form .guest-item .guest-item-label {
       font-size: 25px; }
+  .rsvp-form.submitted .g1,
+  .rsvp-form.submitted .g2,
+  .rsvp-form.submitted .rsvp-btn {
+    -webkit-transition: transform 1s, opacity 1s;
+    -moz-transition: transform 1s, opacity 1s;
+    -o-transition: transform 1s, opacity 1s;
+    -ms-transition: transform 1s, opacity 1s;
+    transition: transform 1s, opacity 1s;
+    opacity: 0; }
+  .rsvp-form.submitted .g1 {
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
+    transform: translateX(-50px); }
+  .rsvp-form.submitted .g2 {
+    -webkit-transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    -o-transform: translateX(50px);
+    transform: translateX(50px); }
+  .rsvp-form.submitted .rsvp-btn {
+    -webkit-transform: translateX(-50%) translateY(10px);
+    -moz-transform: translateX(-50%) translateY(10px);
+    -ms-transform: translateX(-50%) translateY(10px);
+    -o-transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%) translateY(10px); }
+
+.rsvp-main {
+  position: relative; }
+  .rsvp-main .spinner {
+    position: absolute;
+    top: 0;
+    width: 100%; }
 
 .g1.col {
   padding-right: 30px; }
@@ -1825,5 +1861,36 @@ fieldset {
   transform: translateX(-50%);
   top: 60px;
   height: 50px; }
+
+.preloader-wrapper {
+  opacity: 0; }
+  .preloader-wrapper.show {
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s;
+    opacity: 1; }
+
+.confirmation {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  margin-top: -12px;
+  font-size: 30px;
+  color: #03a9f4; }
+  .confirmation.show {
+    opacity: 1;
+    -webkit-transition: transform 1s, opacity 1s;
+    -moz-transition: transform 1s, opacity 1s;
+    -o-transition: transform 1s, opacity 1s;
+    -ms-transition: transform 1s, opacity 1s;
+    transition: transform 1s, opacity 1s;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px); }
 
 /*# sourceMappingURL=core.css.map */

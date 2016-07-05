@@ -103,9 +103,9 @@
                         Well, now that we put down our non-refundable deposit, it <em>will</em> happen.
                     </p>
 
-                    <form class="rsvp-form row">
-                        <div class="g1 col s6">
-                            <fieldset>
+                    <div class="rsvp-main">
+                        <form class="rsvp-form row">
+                            <fieldset class="g1 col s6">
 
                                 <div class="input-field col s6">
                                     <input id="g1-first-name" class="input-text validate" name="g1-first-name" type="text" required>
@@ -145,10 +145,8 @@
                                 </fieldset>
 
                             </fieldset>
-                        </div>
 
-                        <div class="g2 col s6">
-                            <fieldset>
+                            <fieldset class="g2 col s6">
 
                                 <div class="input-field col s6">
                                     <input id="g2-first-name" class="input-text validate" name="g2-first-name" type="text">
@@ -188,14 +186,33 @@
                                 </fieldset>
 
                             </fieldset>
+
+                            <div>
+                                <input type="hidden" name="_gotcha">
+                                <button class="rsvp-btn waves-effect waves-light btn">RSVP</button>
+                            </div>
+                        </form>
+
+                        <div class="spinner">
+                            <div class="preloader-wrapper big active">
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div>
-                            <input type="hidden" name="_gotcha">
-                            <button class="rsvp-btn waves-effect waves-light btn">RSVP</button>
+                        <div class="confirmation">
+                            <p class="thank-you">Thank you! We have received your RSVP.</p>
                         </div>
-                    </form>
-
+                    </div>
                 </div>
             </div>
         </section>
