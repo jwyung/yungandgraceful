@@ -1618,7 +1618,7 @@
 .transparent-text {
   color: transparent !important; }
 
-.hero, .example .image, .location:before, .location .with-icon:before {
+.hero, .example .image, .location:before, .location .with-icon:before, .confirmation:after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; }
@@ -1830,7 +1830,7 @@ fieldset {
   position: relative; }
   .rsvp-main .spinner {
     position: absolute;
-    top: 0;
+    top: 71px;
     width: 100%; }
 
 .g1.col {
@@ -1874,7 +1874,7 @@ fieldset {
 
 .confirmation {
   position: absolute;
-  top: 0;
+  top: 102px;
   width: 100%;
   opacity: 0;
   margin-top: -12px;
@@ -1892,5 +1892,19 @@ fieldset {
     -ms-transform: translateY(-10px);
     -o-transform: translateY(-10px);
     transform: translateY(-10px); }
+  .confirmation:after {
+    content: "";
+    display: block;
+    position: relative;
+    top: 25px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 256px;
+    height: 256px;
+    background-image: url("../images/hugging_emoji.png"); }
 
 /*# sourceMappingURL=core.css.map */
