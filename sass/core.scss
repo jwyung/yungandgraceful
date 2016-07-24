@@ -155,7 +155,7 @@ $examples: (gaming, "red"),
 			line-height: 0.72;
 			content: '"';
 			display: block;
-			color: color("orange", "lighten-3");;
+			color: color("orange", "lighten-3");
 		}
 	}
 }
@@ -209,6 +209,8 @@ $examples: (gaming, "red"),
 }
 
 .rsvp {
+	color: color("blue-grey", "darken-2");
+
 	.description + .muted-text {
 		@include transform(translateY(-12px));
 	}
