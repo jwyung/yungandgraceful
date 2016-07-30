@@ -26,7 +26,7 @@ fieldset {
 // ********************************************************
 
 .hero {
-	background-image: url('../images/couple.jpg');
+	background-image: url('../images/couple_portrait.jpg');
 	@extend %background-stretch;
 	position: relative;
 	height: 100vh;
@@ -66,73 +66,111 @@ fieldset {
 	width: 90%;
 	max-width: 980px;
 	font-family: "LatoWebLight";
-	font-size: 25px;
+	font-size: 27px;
 }
 
 .title {
-	font-size: 38px;
+	font-family: "LatoWebThin";
+	font-size: 52px;
 	font-weight: 900;
 }
 
 .muted-text {
-	font-size: 20px;
+	font-size: 24px;
 	opacity: 0.75;
 }
 
 .btn {
-	font-size: 17px;
+	font-size: 20px;
+	height: 48px;
 }
 
 
 .example {
+	width: 100%;
+	padding-bottom: 56.25%;		// to maintain 16:9 aspect ratio for our 1920 x 1080 <video>;
+
+	.example-video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		max-width: 100%;
+		opacity: 0.1;
+		@include transition(opacity 1s);
+		will-change: opacity;
+	}
+
 	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 		overflow: hidden;
+		@include transition(opacity 1s);
 	}
 
-	.image {
-		background-image: url('../images/master_chief_sword.jpg');
-		@extend %background-stretch;
-		width: 480px;
-		height: 270px;
-		float: left;
-		margin-right: 40px;
-		@include transform(translateY(17px));
+	.play-btn {
+		overflow: visible;
 	}
 
-	.content {
-		width: 460px;
-		float: left;
-	}
-
-	&.inverse {
-		.image {
-			float: right;
-			margin-left: 40px;
-			margin-right: 0;
-		}
-
-		.content {
-			float: right;
-		}
-	}
-}
-
-$examples: (gaming, "red"),
-		   (weirdness, "purple"),
-		   (road-trip, "deep-orange");
-
-@each $example, $color in $examples {
-	.#{$example} {
-		background-color: color($color, "lighten-5");
-	}
-
-	.#{$example}-btn {
-		$example-button-background-color: color($color, "darken-2");
-		background-color: $example-button-background-color;
+	.play-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 75px;
+		will-change: opacity, transform;
+		transition: all .3s ease-out;
+		text-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+		pointer-events: none;
 
 		&:hover,
 		&:focus {
-			background-color: lighten($example-button-background-color, 5%);
+			text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15);
+		}
+	}
+
+	.content {
+		width: 675px;
+	}
+
+	.btn {
+		margin-top: 25px;
+	}
+
+	&.playing {
+			.example-video {
+				opacity: 1;
+				cursor: pointer;
+			}
+
+			.container {
+				opacity: 0;
+				pointer-events: none;
+			}
+	}
+}
+
+$examples: (gaming, #FFEBEE),
+		   (weirdness, #FFF3EB),
+		   (road-trip, #FFEBF9);
+
+@each $example, $color in $examples {
+	.#{$example} {
+		position: relative;
+		background-color: $color;
+	}
+
+	.#{$example}-btn {
+		background-color: darken(#EBFFFB, 50%);
+		color: #000;
+
+		&:hover,
+		&:focus {
+			background-color: darken(#EBFFFB, 10%);
 		}
 	}
 }

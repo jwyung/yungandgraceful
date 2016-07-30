@@ -1618,7 +1618,7 @@
 .transparent-text {
   color: transparent !important; }
 
-.hero, .example .image, .location:before, .location .with-icon:before, .confirmation:after {
+.hero, .location:before, .location .with-icon:before, .confirmation:after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; }
@@ -1632,7 +1632,7 @@ fieldset {
   margin: 0; }
 
 .hero {
-  background-image: url("../images/couple.jpg");
+  background-image: url("../images/couple_portrait.jpg");
   position: relative;
   height: 100vh; }
   .hero .content {
@@ -1668,65 +1668,104 @@ fieldset {
   width: 90%;
   max-width: 980px;
   font-family: "LatoWebLight";
-  font-size: 25px; }
+  font-size: 27px; }
 
 .title {
-  font-size: 38px;
+  font-family: "LatoWebThin";
+  font-size: 52px;
   font-weight: 900; }
 
 .muted-text {
-  font-size: 20px;
+  font-size: 24px;
   opacity: 0.75; }
 
 .btn {
-  font-size: 17px; }
+  font-size: 20px;
+  height: 48px; }
 
-.example .container {
-  overflow: hidden; }
-.example .image {
-  background-image: url("../images/master_chief_sword.jpg");
-  width: 480px;
-  height: 270px;
-  float: left;
-  margin-right: 40px;
-  -webkit-transform: translateY(17px);
-  -moz-transform: translateY(17px);
-  -ms-transform: translateY(17px);
-  -o-transform: translateY(17px);
-  transform: translateY(17px); }
-.example .content {
-  width: 460px;
-  float: left; }
-.example.inverse .image {
-  float: right;
-  margin-left: 40px;
-  margin-right: 0; }
-.example.inverse .content {
-  float: right; }
+.example {
+  width: 100%;
+  padding-bottom: 56.25%; }
+  .example .example-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    opacity: 0.1;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s;
+    will-change: opacity; }
+  .example .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s; }
+  .example .play-btn {
+    overflow: visible; }
+  .example .play-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+    will-change: opacity, transform;
+    transition: all .3s ease-out;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+    pointer-events: none; }
+    .example .play-icon:hover, .example .play-icon:focus {
+      text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15); }
+  .example .content {
+    width: 675px; }
+  .example .btn {
+    margin-top: 25px; }
+  .example.playing .example-video {
+    opacity: 1;
+    cursor: pointer; }
+  .example.playing .container {
+    opacity: 0;
+    pointer-events: none; }
 
 .gaming {
+  position: relative;
   background-color: #FFEBEE; }
 
 .gaming-btn {
-  background-color: #D32F2F; }
+  background-color: #00ebbc;
+  color: #000; }
   .gaming-btn:hover, .gaming-btn:focus {
-    background-color: #d74444; }
+    background-color: #b8fff1; }
 
 .weirdness {
-  background-color: #f3e5f5; }
+  position: relative;
+  background-color: #FFF3EB; }
 
 .weirdness-btn {
-  background-color: #7b1fa2; }
+  background-color: #00ebbc;
+  color: #000; }
   .weirdness-btn:hover, .weirdness-btn:focus {
-    background-color: #8b23b7; }
+    background-color: #b8fff1; }
 
 .road-trip {
-  background-color: #fbe9e7; }
+  position: relative;
+  background-color: #FFEBF9; }
 
 .road-trip-btn {
-  background-color: #e64a19; }
+  background-color: #00ebbc;
+  color: #000; }
   .road-trip-btn:hover, .road-trip-btn:focus {
-    background-color: #e95c30; }
+    background-color: #b8fff1; }
 
 .quote .description {
   position: relative;

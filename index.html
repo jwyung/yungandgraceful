@@ -6,6 +6,7 @@
         <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection">
         <link type="text/css" rel="stylesheet" href="css/core.css" media="screen,projection">
         <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
@@ -25,40 +26,52 @@
         </section>
 
         <section class="gaming example">
+            <video class="gaming-video example-video" src="videos/gaming.mov">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/gaming.mov">download it</a>
+              and watch it with your favorite video player!
+            </video>
             <div class="container">
-                <div class="image z-depth-3"></div>
                 <div class="content">
                     <div class="title">Share the same goals.</div>
                     <p class="description">
                         Perhaps it's how we set, achieve, and celebrate life goals. We may have different methods of achieving those goals, but we both want the same end result.
                     </p>
-                    <button class="gaming-btn waves-effect waves-light btn">Experience</button>
+                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video"><i class="play-icon material-icons">play_circle_filled</i></button>
                 </div>
             </div>
         </section>
 
         <section class="weirdness example inverse">
+            <video class="weirdness-video example-video" src="videos/gaming.mov">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/gaming.mov">download it</a>
+              and watch it with your favorite video player!
+            </video>
             <div class="container">
-                <div class="image z-depth-3"></div>
                 <div class="content">
                     <div class="title">Being yourself. x2</div>
                     <p class="description">
                         It could be that the level of weirdness is completely normal to us, but to you... it's just weird.
                     </p>
-                    <button class="weirdness-btn waves-effect waves-light btn">Experience</button>
+                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video"><i class="play-icon material-icons">play_circle_filled</i></button>
                 </div>
             </div>
         </section>
 
         <section class="road-trip example">
+            <video class="road-trip-video example-video" src="videos/gaming.mov">
+              Sorry, your browser doesn't support embedded videos, 
+              but don't worry, you can <a href="videos/gaming.mov">download it</a>
+              and watch it with your favorite video player!
+            </video>
             <div class="container">
-                <div class="image z-depth-3"></div>
                 <div class="content">
                     <div class="title">It's not where you go, but how you get there.</div>
                     <p class="description">
                         But maybe it's not so much reaching a destination as spending time and sharing memories while getting there.
                     </p>
-                    <button class="road-trip-btn waves-effect waves-light btn">Experience</button>
+                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video"><i class="play-icon material-icons">play_circle_filled</i></button>
                 </div>
             </div>
         </section>
@@ -106,7 +119,7 @@
                     <div class="rsvp-main">
                         <form class="rsvp-form row">
                             <fieldset class="g1 col s6">
-
+                                <legend>Guest 1</legend>
                                 <div class="input-field col s6">
                                     <input id="g1-first-name" class="input-text validate" name="g1-first-name" type="text" required>
                                     <label class="input-label" for="g1-first-name">First Name</label>
@@ -147,7 +160,7 @@
                             </fieldset>
 
                             <fieldset class="g2 col s6">
-
+                                <legend>Guest 2</legend>
                                 <div class="input-field col s6">
                                     <input id="g2-first-name" class="input-text validate" name="g2-first-name" type="text">
                                     <label class="input-label" for="g2-first-name">First Name</label>
@@ -217,6 +230,7 @@
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/bin/materialize.min.js"></script>
-        <script type="text/javascript" src="js/core.js"></script>
+        <script type="text/javascript" src="js/videos.js"></script>
+        <script type="text/javascript" src="js/rsvp.js"></script>
     </body>
 </html>
