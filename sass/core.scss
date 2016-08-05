@@ -55,6 +55,10 @@ fieldset {
 
 $orange: #FFDBB2;
 
+$tablet-portrait: 768px;
+$phone-landscape: 640px;
+$phone-portrait: 320px;
+
 // ********************************************************
 // *                         Hero                         *
 // ********************************************************
@@ -101,17 +105,31 @@ $orange: #FFDBB2;
 	max-width: 980px;
 	font-family: "LatoWebLight";
 	font-size: 27px;
+
+	@media only screen and (max-width: $tablet-portrait) {
+		padding-top: 125px;
+		padding-bottom: 125px;
+		font-size: 23px;
+	}
 }
 
 .title {
 	font-family: "LatoWebThin";
 	font-size: 52px;
 	font-weight: 900;
+
+	@media only screen and (max-width: $tablet-portrait) {
+		font-size: 45px;
+	}
 }
 
 .muted-text {
 	font-size: 24px;
 	opacity: 0.75;
+
+	@media only screen and (max-width: $tablet-portrait) {
+		font-size: 20px;
+	}
 }
 
 .btn {
@@ -227,6 +245,10 @@ $examples: (gaming, #FFEBEE),
 			content: '"';
 			display: block;
 			color: darken($orange, 5%);
+		}
+
+		@media only screen and (max-width: $tablet-portrait) {
+			font-size: 28px;
 		}
 	}
 }
@@ -520,6 +542,10 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 	&:focus {
 		color: $rsvp_color_muted_button_hover;
 		border-bottom: 1px solid $rsvp_color_muted_button_hover;
+	}
+
+	@media only screen and (max-width: $tablet-portrait) {
+		font-size: 20px;
 	}
 
 	.material-icons {

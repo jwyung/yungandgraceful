@@ -1694,15 +1694,26 @@ fieldset {
   max-width: 980px;
   font-family: "LatoWebLight";
   font-size: 27px; }
+  @media only screen and (max-width: 768px) {
+    .container {
+      padding-top: 125px;
+      padding-bottom: 125px;
+      font-size: 23px; } }
 
 .title {
   font-family: "LatoWebThin";
   font-size: 52px;
   font-weight: 900; }
+  @media only screen and (max-width: 768px) {
+    .title {
+      font-size: 45px; } }
 
 .muted-text {
   font-size: 24px;
   opacity: 0.75; }
+  @media only screen and (max-width: 768px) {
+    .muted-text {
+      font-size: 20px; } }
 
 .example {
   width: 100%;
@@ -1809,6 +1820,9 @@ fieldset {
     content: '"';
     display: block;
     color: #ffcf99; }
+  @media only screen and (max-width: 768px) {
+    .quote .description {
+      font-size: 28px; } }
 
 .location {
   position: relative; }
@@ -2006,6 +2020,9 @@ fieldset {
   .plus-one-btn:hover, .plus-one-btn:focus {
     color: #7d8bfa;
     border-bottom: 1px solid #7d8bfa; }
+  @media only screen and (max-width: 768px) {
+    .plus-one-btn {
+      font-size: 20px; } }
   .plus-one-btn .material-icons {
     font-size: 27px;
     -webkit-transform: translateY(5px);
