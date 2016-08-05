@@ -1669,11 +1669,14 @@ fieldset {
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
+    width: 100%;
     text-align: center;
     color: #455a64; }
   .hero .title {
     font-size: 60px;
     margin-bottom: 18px; }
+  .hero .hash {
+    opacity: 0.23; }
   .hero .coming-soon {
     font-size: 20px;
     line-height: 38px;
