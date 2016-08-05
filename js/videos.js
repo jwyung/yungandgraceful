@@ -32,12 +32,12 @@
 	function videoScrollFireHandler(video) {
 		playVideo(video);
 		video.playbackRate = 0.5;
-		video.setAttribute('muted', true);
+		video.muted = true;
 
 		scrollFireSettings.timeout[video.className] = setTimeout(function() {
 			pauseVideo(video);
 			video.playbackRate = 1;
-			video.setAttribute('muted', false);
+			video.muted = false;
 		}, 2000);
 	}
 
@@ -89,7 +89,7 @@
 		video.play();
 		video.isPaused = false;
 		video.playbackRate = 1;
-		video.setAttribute('muted', false);
+		video.muted = false;
 	}
 
 	function pauseVideo(video) {
