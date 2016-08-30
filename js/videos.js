@@ -1,99 +1,145 @@
-(function($) {
-	var $examples = $('.example');
-	var scrollFireSettings = {
-		offset: $examples.innerHeight() * 3/4,
-		timeout: {}
-	};
+var $examples = $('.example');
 
-	var options = [
-		{
-			selector: '.gaming-video',
-			offset: scrollFireSettings.offset,
-			callback: function(el) {
-				videoScrollFireHandler($examples.find('.gaming-video')[0]);
-			}
-		},
-		{
-			selector: '.weirdness-video',
-			offset: scrollFireSettings.offset,
-			callback: function(el) {
-				videoScrollFireHandler($examples.find('.weirdness-video')[0]);
-			}
-		},
-		{
-			selector: '.road-trip-video',
-			offset: scrollFireSettings.offset,
-			callback: function(el) {
-				videoScrollFireHandler($examples.find('.road-trip-video')[0]);
+$('.example')
+	.on('click', '.play-btn', play)
+	.on('click', '.video-mask', pause)
+	.on('mouseover', '.example-video', showControls)
+	.on('mousedown', '.example-video', hideControls);
+
+function play() {
+	var $example = $(this).closest('.example');
+	var videoId = $(this).closest('.example').find('.example-video').attr('id');
+
+	$.map($examples, function(example) {
+		if ($(example).hasClass('playing')) {
+			pause.call(example);
+		}
+	});
+
+	$example.addClass('playing video-loaded');
+	playVideo(videoId);
+}
+
+function pause() {
+	var $example = $(this).closest('.example');
+	var videoId = $(this).closest('.example').find('.example-video').attr('id');
+
+	$example.removeClass('playing');
+	pauseVideo(videoId);
+}
+
+function showControls() {
+	if ($(this).closest('.playing').length) {
+		this.setAttribute('controls', 'controls');
+	}
+}
+
+function hideControls() {
+	this.removeAttribute('controls');
+}
+
+function playVideo(videoId, playbackRate, muted) {
+	var video = players[videoId];
+
+	if (typeof video === 'object') {
+		video.playVideo();
+	}
+}
+
+function pauseVideo(videoId) {
+	var video = players[videoId];
+
+	if (typeof video === 'object') {
+		video.pauseVideo();
+	}
+}
+
+var players = {
+	'gaming-video': null,
+	'weirdness-video': null,
+	'road-trip-video': null
+};
+
+var playersLoaded = {
+	'gaming-video': false,
+	'weirdness-video': false,
+	'road-trip-video': false
+};
+
+function onYouTubeIframeAPIReady() {
+	loadFirstVideo();
+}
+
+function loadFirstVideo() {
+    players['gaming-video'] = new YT.Player('gaming-video', {
+        videoId: 'fwuHoUH1Q-Y',
+	suggestedQuality: 'highres',
+        playerVars: {
+            color: 'white',
+            rel: 0,
+            showinfo: 0,
+            autoplay: 1
+        },
+        events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+        }
+    });
+}
+
+function loadRemainingVideos() {
+    players['weirdness-video'] = new YT.Player('weirdness-video', {
+        videoId: 'fwuHoUH1Q-Y',
+	suggestedQuality: 'highres',
+        playerVars: {
+            color: 'white',
+            rel: 0,
+            showinfo: 0,
+            autoplay: 1
+        },
+        events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+        }
+    });
+
+    players['road-trip-video'] = new YT.Player('road-trip-video', {
+        videoId: 'fwuHoUH1Q-Y',
+	suggestedQuality: 'highres',
+        playerVars: {
+            color: 'white',
+            rel: 0,
+            showinfo: 0,
+            autoplay: 1
+        },
+        events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+        }
+    });
+}
+
+
+function onPlayerReady(evt) {
+}
+
+function onPlayerStateChange(evt) {
+	if (evt.data === YT.PlayerState.PLAYING) {
+		var videoId = $(evt.target.a).attr('id');
+
+		if (!playersLoaded[videoId]) {
+			playersLoaded[videoId] = true;
+			players[videoId].pauseVideo();
+			$('.' + videoId).closest('.example').find('.play-btn').removeAttr('disabled');
+
+			if (videoId === 'gaming-video') {
+				loadRemainingVideos();
 			}
 		}
-	];
-
-	function videoScrollFireHandler(video) {
-		playVideo(video);
-		video.playbackRate = 0.5;
-		video.muted = true;
-
-		scrollFireSettings.timeout[video.className] = setTimeout(function() {
-			pauseVideo(video);
-			video.playbackRate = 1;
-			video.muted = false;
-		}, 2000);
 	}
 
-	Materialize.scrollFire(options);
-
-
-	$('.example')
-		.on('click', '.play-btn', play)
-		.on('click', '.example-video', pause)
-		.on('mouseover', '.example-video', showControls)
-		.on('mousedown', '.example-video', hideControls);
-
-	function play() {
-		var $example = $(this).closest('.example');
-		var video = $example.find('.example-video')[0];
-
-		clearTimeout(scrollFireSettings.timeout[video.className]);
-
-		$.map($examples, function(example) {
-			if ($(example).hasClass('playing')) {
-				pause.call(example);
-			}
-		});
-
-		$example.addClass('playing');
-		playVideo(video);
+	if (evt.data === YT.PlayerState.ENDED) {
+		player.playVideo();
+		pause.call(evt.target.a);
 	}
-
-	function pause() {
-		var $example = $(this).closest('.example');
-		var video = $example.find('.example-video')[0];
-
-		$example.removeClass('playing');
-		pauseVideo(video);
-		video.removeAttribute('controls');
-	}
-
-	function showControls() {
-		if ($(this).closest('.playing').length) {
-			this.setAttribute('controls', 'controls');
-		}
-	}
-
-	function hideControls() {
-		this.removeAttribute('controls');
-	}
-
-	function playVideo(video) {
-		video.play();
-		video.isPaused = false;
-		video.playbackRate = 1;
-		video.muted = false;
-	}
-
-	function pauseVideo(video) {
-		video.pause();
-		video.isPaused = true;
-	}
-}(jQuery));
+}

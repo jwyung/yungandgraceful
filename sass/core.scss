@@ -141,19 +141,61 @@ $phone-portrait: 320px;
 	@extend %btn-size;
 }
 
+$widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 x 1080 <video>;
+
+.widescreen-aspect-ratio {
+	width: 100%;
+	padding-bottom: $widescreen-aspect-ratio;
+}
 
 .example {
-	width: 100%;
-	padding-bottom: 56.25%;		// to maintain 16:9 aspect ratio for our 1920 x 1080 <video>;
+	&:before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 35%;
+		z-index: 1;
+		will-change: opacity;
+		@include transition(opacity 1s);
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		@extend %background-stretch;
+		background-size: contain;
+		opacity: 0.1;
+		@include transition(opacity 1s);
+		will-change: opacity;
+	}
+
+	&.video-loaded {
+		&:after {
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.example-video {
+			opacity: 0.1;
+		}
+	}
 
 	.example-video {
 		position: absolute;
 		top: 0;
 		left: 0;
 		max-width: 100%;
-		opacity: 0.1;
+		opacity: 0;
 		@include transition(opacity 1s);
 		will-change: opacity;
+		width: 100%;
+		height: 100%;
 	}
 
 	.container {
@@ -198,16 +240,29 @@ $phone-portrait: 320px;
 	}
 
 	&.playing {
-			.example-video {
-				opacity: 1;
-				cursor: pointer;
-			}
+		&:before {
+			opacity: 0;
+			pointer-events: none;
+		}
 
-			.container {
-				opacity: 0;
-				pointer-events: none;
-			}
+		&.video-loaded .example-video {
+			opacity: 1;
+			cursor: pointer;
+		}
+
+		.container {
+			opacity: 0;
+			pointer-events: none;
+		}
 	}
+}
+
+.video-mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-bottom: calc(#{$widescreen-aspect-ratio} - 39px);
+	cursor: pointer;
 }
 
 $examples: (gaming, #FFEBEE),
@@ -218,6 +273,14 @@ $examples: (gaming, #FFEBEE),
 	.#{$example} {
 		position: relative;
 		background-color: $color;
+
+		&:before {
+			background: linear-gradient(to bottom,rgba($color, 0.1) ,rgba($color, 1));
+		}
+
+		&:after {
+			background-image: url('../images/gaming_frame.jpg');
+		}
 	}
 
 	.#{$example}-btn {
@@ -291,6 +354,10 @@ $examples: (gaming, #FFEBEE),
 			margin-bottom: 30px;
 	}
 
+	.map-btn {
+		color: darken(#e1f5fe, 50%);
+	}
+
 	.address:before {
 		background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDM1LjIxOSAzNS4yMTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM1LjIxOSAzNS4yMTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTI4cHgiIGhlaWdodD0iMTI4cHgiPgo8Zz4KCTxwYXRoIGQ9Ik0xNy42MTIsMEMxMS4wMDUsMCw1LjY0OCw1LjMyMSw1LjY0OCwxMS44ODVjMCwzLjM1OCwzLjI5NCw5LjM3NCwzLjI5NCw5LjM3NGw4LjIyOSwxMy45Nmw4LjU4Ni0xMy43OTcgICBjMCwwLDMuODE0LTUuNzQsMy44MTQtOS41MzdDMjkuNTcyLDUuMzIxLDI0LjIxNiwwLDE3LjYxMiwweiBNMTcuNTU2LDE4LjQzMWMtMy43ODQsMC02Ljg0OS0zLjA2NS02Ljg0OS02Ljg1MyAgIGMwLTMuNzgzLDMuMDY0LTYuODQ2LDYuODQ5LTYuODQ2YzMuNzgyLDAsNi44NSwzLjA2Myw2Ljg1LDYuODQ2QzI0LjQwNiwxNS4zNjYsMjEuMzM4LDE4LjQzMSwxNy41NTYsMTguNDMxeiIgZmlsbD0iI2VmOWE5YSIvPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
 	}
@@ -323,10 +390,6 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 
 	.description + .muted-text {
 		@include transform(translateY(-12px));
-	}
-
-	.section-accent {
-		color: darken($rsvp_color_primary, 30%);
 	}
 }
 

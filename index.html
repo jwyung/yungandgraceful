@@ -25,53 +25,44 @@
             </p>
         </section>
 
-        <section class="gaming example">
-            <video class="gaming-video example-video" src="gaming.mov">
-              Sorry, your browser doesn't support embedded videos, 
-              but don't worry, you can <a href="gaming.mov">download it</a>
-              and watch it with your favorite video player!
-            </video>
+        <section class="gaming example widescreen-aspect-ratio">
+            <div id="gaming-video" class="gaming-video example-video"></div>
+            <div class="gaming-video-mask video-mask widescreen-aspect-ratio"></div>
             <div class="container">
                 <div class="content">
                     <div class="title">Share the same goals.</div>
                     <p class="description">
                         Perhaps it's how we set, achieve, and celebrate life goals. We may have different methods of achieving those goals, but we both want the same end result.
                     </p>
-                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video"><i class="play-icon material-icons">play_circle_filled</i></button>
+                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video" disabled><i class="play-icon material-icons">play_circle_filled</i></button>
                 </div>
             </div>
         </section>
 
-        <section class="weirdness example inverse">
-            <video class="weirdness-video example-video" src="gaming.mov">
-              Sorry, your browser doesn't support embedded videos, 
-              but don't worry, you can <a href="gaming.mov">download it</a>
-              and watch it with your favorite video player!
-            </video>
+        <section class="weirdness example widescreen-aspect-ratio">
+            <div id="weirdness-video" class="weirdness-video example-video"></div>
+            <div class="weirdness-video-mask video-mask widescreen-aspect-ratio"></div>
             <div class="container">
                 <div class="content">
                     <div class="title">Being yourself. x2</div>
                     <p class="description">
                         It could be that the level of weirdness is completely normal to us, but to you... it's just weird.
                     </p>
-                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video"><i class="play-icon material-icons">play_circle_filled</i></button>
+                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video" disabled><i class="play-icon material-icons">play_circle_filled</i></button>
                 </div>
             </div>
         </section>
 
-        <section class="road-trip example">
-            <video class="road-trip-video example-video" src="gaming.mov">
-              Sorry, your browser doesn't support embedded videos, 
-              but don't worry, you can <a href="gaming.mov">download it</a>
-              and watch it with your favorite video player!
-            </video>
+        <section class="road-trip example widescreen-aspect-ratio">
+            <div id="road-trip-video" class="road-trip-video example-video"></div>
+            <div class="road-trip-video-mask video-mask widescreen-aspect-ratio"></div>
             <div class="container">
                 <div class="content">
                     <div class="title">It's not where you go, but how you get there.</div>
                     <p class="description">
                         But maybe it's not so much reaching a destination as spending time and sharing memories while getting there.
                     </p>
-                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video"><i class="play-icon material-icons">play_circle_filled</i></button>
+                    <button class="gaming-btn play-btn btn-floating btn-large waves-effect waves-light btn" aria-label="play video" disabled><i class="play-icon material-icons">play_circle_filled</i></button>
                 </div>
             </div>
         </section>
@@ -110,7 +101,7 @@
                 <div class="content">
                     <div class="title">RSVP</div>
                     <p class="description">
-                        It's really happening<span class="section-accent">!</span>
+                        It's really happening!
                     </p>
                     <p class="muted-text">
                         Well, now that we put down our non-refundable deposit, it <em>will</em> happen.
@@ -243,6 +234,7 @@
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/bin/materialize.min.js"></script>
+        <script type="text/javascript" src="js/youtube_api.js"></script>
         <script type="text/javascript" src="js/videos.js"></script>
         <script type="text/javascript" src="js/rsvp.js"></script>
     </body>
