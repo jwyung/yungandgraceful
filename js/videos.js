@@ -56,14 +56,12 @@ function pauseVideo(videoId) {
 
 var players = {
 	'gaming-video': null,
-	'weirdness-video': null,
-	'road-trip-video': null
+	'weirdness-video': null
 };
 
 var playersLoaded = {
 	'gaming-video': false,
-	'weirdness-video': false,
-	'road-trip-video': false
+	'weirdness-video': false
 };
 
 function onYouTubeIframeAPIReady() {
@@ -89,22 +87,7 @@ function loadFirstVideo() {
 
 function loadRemainingVideos() {
     players['weirdness-video'] = new YT.Player('weirdness-video', {
-        videoId: 'fwuHoUH1Q-Y',
-	suggestedQuality: 'highres',
-        playerVars: {
-            color: 'white',
-            rel: 0,
-            showinfo: 0,
-            autoplay: 1
-        },
-        events: {
-            onReady: onPlayerReady,
-            onStateChange: onPlayerStateChange
-        }
-    });
-
-    players['road-trip-video'] = new YT.Player('road-trip-video', {
-        videoId: 'fwuHoUH1Q-Y',
+        videoId: 'zaPnteG4COI',
 	suggestedQuality: 'highres',
         playerVars: {
             color: 'white',
@@ -139,7 +122,9 @@ function onPlayerStateChange(evt) {
 	}
 
 	if (evt.data === YT.PlayerState.ENDED) {
-		player.playVideo();
+		var videoId = $(evt.target.a).attr('id');
+
+		players[videoId].playVideo();
 		pause.call(evt.target.a);
 	}
 }

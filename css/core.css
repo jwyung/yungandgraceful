@@ -1824,9 +1824,9 @@ html.modal-visible {
 
 .gaming {
   position: relative;
-  background-color: #FFEBEE; }
+  background-color: #FFEBF9; }
   .gaming:before {
-    background: linear-gradient(to bottom, rgba(255, 235, 238, 0.1), #ffebee); }
+    background: linear-gradient(to bottom, rgba(255, 235, 249, 0.1), #ffebf9); }
   .gaming:after {
     background-image: url("../images/gaming_frame.jpg"); }
 
@@ -1842,7 +1842,7 @@ html.modal-visible {
   .weirdness:before {
     background: linear-gradient(to bottom, rgba(255, 243, 235, 0.1), #fff3eb); }
   .weirdness:after {
-    background-image: url("../images/gaming_frame.jpg"); }
+    background-image: url("../images/weirdness_frame.jpg"); }
 
 .weirdness-btn {
   background-color: #d2fff6;
@@ -1852,11 +1852,11 @@ html.modal-visible {
 
 .road-trip {
   position: relative;
-  background-color: #FFEBF9; }
+  background-color: #FFEBEE; }
   .road-trip:before {
-    background: linear-gradient(to bottom, rgba(255, 235, 249, 0.1), #ffebf9); }
+    background: linear-gradient(to bottom, rgba(255, 235, 238, 0.1), #ffebee); }
   .road-trip:after {
-    background-image: url("../images/gaming_frame.jpg"); }
+    background-image: url("../images/road-trip_frame.jpg"); }
 
 .road-trip-btn {
   background-color: #d2fff6;

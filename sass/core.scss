@@ -274,9 +274,9 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 	cursor: pointer;
 }
 
-$examples: (gaming, #FFEBEE),
+$examples: (gaming, #FFEBF9),
 		   (weirdness, #FFF3EB),
-		   (road-trip, #FFEBF9);
+		   (road-trip, #FFEBEE);
 
 @each $example, $color in $examples {
 	.#{$example} {
@@ -288,7 +288,7 @@ $examples: (gaming, #FFEBEE),
 		}
 
 		&:after {
-			background-image: url('../images/gaming_frame.jpg');
+			background-image: url('../images/#{$example}_frame.jpg');
 		}
 	}
 
