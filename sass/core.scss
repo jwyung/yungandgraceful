@@ -765,3 +765,105 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 		@extend %background-stretch;
 	}
 }
+
+$modal_color_btn: darken($light_blue, 5%);
+$modal_color_btn_hover: lighten($modal_color_btn, 2%);
+.ritz-map-modal {
+	position: fixed;
+	top: 0;
+	width: 0;
+	height: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+	background-color: rgba(255, 255, 255, 0.8);
+	opacity: 0;
+	@include transition(opacity 0.4s ease-out);
+	clip: rect(0px 0px 0px 0px);
+	will-change: opacity;
+
+	.modal-content {
+		border-radius: 10px;
+		will-change: animation;
+	}
+
+	.close-btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		@include transform(rotate(45deg) translateY(-100%));
+		background-color: $modal_color_btn;
+		color: rgba(0, 0, 0, 0.5);
+
+		&:hover,
+		&:focus {
+			background-color: $modal_color_btn_hover;
+		}
+	}
+
+	&.show {
+		opacity: 1;
+		clip: auto;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+
+		.modal-content {
+			animation: show-modal 0.4s forwards ease-out;
+		}
+	}
+}
+
+@-webkit-keyframes show-modal {
+	0% {
+		@include transform(scale(0.7));
+	}
+
+	70% {
+		@include transform(scale(1.05));
+	}
+
+	100% {
+		@include transform(scale(1));
+	}
+}
+@-moz-keyframes show-modal {
+	0% {
+		@include transform(scale(0.7));
+	}
+
+	70% {
+		@include transform(scale(1.05));
+	}
+
+	100% {
+		@include transform(scale(1));
+	}
+}
+@-o-keyframes show-modal {
+	0% {
+		@include transform(scale(0.7));
+	}
+
+	70% {
+		@include transform(scale(1.05));
+	}
+
+	100% {
+		@include transform(scale(1));
+	}
+}
+@keyframes show-modal {
+	0% {
+		@include transform(scale(0.7));
+	}
+
+	70% {
+		@include transform(scale(1.05));
+	}
+
+	100% {
+		@include transform(scale(1));
+	}
+}
