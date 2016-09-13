@@ -21,7 +21,7 @@
         <section class="introduction container">
             <div class="title">Two Pasts. One Future.</div>
             <p class="description">
-                Jonathan Yung and Grace Jia. Many have asked us about how we know we're right for each other. Maybe it's the way we push each other beyond our comfort zones, beyond our limits to find our better selves. But sometimes, we think it's how Grace prefers to cook while Jonathan prefers to eat. Or maybe, it's the depth of our relationship that we can hear, comprehend, and feel each others' silent thoughts.
+                Grace Jia and Jonathan Yung. Many have asked us about how we know we're right for each other. Maybe it's the way we push each other beyond our comfort zones, beyond our limits to find our better selves. But sometimes, we think it's how Grace prefers to cook while Jonathan prefers to eat. Or maybe, it's the depth of our relationship that we can hear, comprehend, and feel each others' silent thoughts.
             </p>
         </section>
 
@@ -80,12 +80,12 @@
                     <p class="description">
                         Please join us at this beautiful ocean-front resort. This is the key destination for friends and families from all over the world to experience and celebrate an unforgettable night with us.
                     </p>
-                    <div class="info row ">
+                    <div class="info row">
                         <div class="date with-icon info-item col s4">
                                 December 10, 2016
                         </div>
                         <div class="address with-icon info-item col s4">
-                                1 Ritz Carlton Dr,<br>
+                                1 Ritz Carlton Dr.<br>
                                 Dana Point, CA 92629
                         </div>
                         <div class="time with-icon info-item col s4">
@@ -127,27 +127,46 @@
                                 <div class="guest-items">
                                     <fieldset class="guest-item">
                                         <legend>Will you attend?</legend>
-                                        <p class="options">
-                                            <input id="g1-rsvp-yes" class="g1-item guest-item-radio" name="g1-rsvp" type="radio" value="yes" disabled required>
-                                            <label class="guest-item-label btn" for="g1-rsvp-yes">Count me in!</label>
+                                        <div class="rsvp-content guest-item-content">
+                                            <p class="options">
+                                                <input id="g1-rsvp-yes" class="g1-item item-rsvp guest-item-radio" name="g1-rsvp" type="radio" value="yes" disabled required>
+                                                <label class="g1-rsvp-item item-rsvp-label guest-item-label btn" for="g1-rsvp-yes">Count me in!</label>
 
-                                            <input id="g1-rsvp-no" class="g1-item guest-item-radio" name="g1-rsvp" type="radio" value="no" disabled required>
-                                            <label class="guest-item-label btn" for="g1-rsvp-no">I'm a pooper</label>
-                                        </p>
+                                                <input id="g1-rsvp-no" class="g1-item item-rsvp guest-item-radio" name="g1-rsvp" type="radio" value="no" disabled required>
+                                                <label class="g1-rsvp-item item-rsvp-label guest-item-label btn" for="g1-rsvp-no">I'm a pooper</label>
+                                            </p>
+                                            <div class="error">
+                                                <i class="material-icons">error_outline</i>
+                                                <span class="error-message">
+                                                    But, I don't know your full name, yet!
+                                                </span>
+                                            </div>
+                                        </div>
                                     </fieldset>
 
                                     <fieldset class="guest-item">
-                                        <legend>Entree preference</legend>
-                                        <p class="options">
-                                            <input id="g1-entree-poultry" class="g1-item guest-item-radio" name="g1-entree" type="radio" value="poultry" disabled>
-                                            <label class="guest-item-label btn" for="g1-entree-poultry">Poultry</label>
+                                        <legend>Entree preference?</legend>
+                                        <div class="entree-content guest-item-content">
+                                            <p class="options">
+                                                <input id="g1-entree-poultry" class="g1-item item-entree guest-item-radio" name="g1-entree" type="radio" value="poultry" disabled>
+                                                <label class="item-entree-label guest-item-label btn" for="g1-entree-poultry">Poultry</label>
 
-                                            <input id="g1-entree-beef" class="g1-item guest-item-radio" name="g1-entree" type="radio" value="beef" disabled>
-                                            <label class="guest-item-label btn" for="g1-entree-beef">Beef</label>
+                                                <input id="g1-entree-beef" class="g1-item item-entree guest-item-radio" name="g1-entree" type="radio" value="beef" disabled>
+                                                <label class="item-entree-label guest-item-label btn" for="g1-entree-beef">Beef</label>
 
-                                            <input id="g1-entree-veg" class="g1-item guest-item-radio" name="g1-entree" type="radio" value="veg" disabled>
-                                            <label class="guest-item-label btn" for="g1-entree-veg">Vegetarian</label>
-                                        </p>
+                                                <input id="g1-entree-veg" class="g1-item item-entree guest-item-radio" name="g1-entree" type="radio" value="veg" disabled>
+                                                <label class="item-entree-label guest-item-label btn" for="g1-entree-veg">Vegetarian</label>
+                                            </p>
+                                            <div class="error">
+                                                <i class="material-icons">error_outline</i>
+                                                <span class="error-message rsvp-selected">
+                                                    You're not attending <strong>and</strong> you want food?
+                                                </span>
+                                                <span class="error-message rsvp-not-selected hidden">
+                                                    Please let us know if you're attending, first!
+                                                </span>
+                                            </div>
+                                        </div>
                                     </fieldset>
                                 </div>
 
@@ -178,27 +197,46 @@
                                 <div class="guest-items">
                                     <fieldset class="guest-item">
                                         <legend>Will you attend?</legend>
-                                        <p class="options">
-                                            <input id="g2-rsvp-yes" class="g2-item guest-item-radio" name="g2-rsvp" type="radio" value="yes" disabled required>
-                                            <label class="guest-item-label btn" for="g2-rsvp-yes">Count me in!</label>
+                                        <div class="rsvp-content guest-item-content">
+                                            <p class="options">
+                                                <input id="g2-rsvp-yes" class="g2-item item-rsvp guest-item-radio" name="g2-rsvp" type="radio" value="yes" disabled required>
+                                                <label class="item-rsvp-label guest-item-label btn" for="g2-rsvp-yes">Count me in!</label>
 
-                                            <input id="g2-rsvp-no" class="g2-item guest-item-radio" name="g2-rsvp" type="radio" value="no" disabled required>
-                                            <label class="guest-item-label btn" for="g2-rsvp-no">I'm a pooper</label>
-                                        </p>
+                                                <input id="g2-rsvp-no" class="g2-item item-rsvp guest-item-radio" name="g2-rsvp" type="radio" value="no" disabled required>
+                                                <label class="item-rsvp-label guest-item-label btn" for="g2-rsvp-no">I'm a pooper</label>
+                                            </p>
+                                            <div class="error">
+                                                <i class="material-icons">error_outline</i>
+                                                <span class="error-message">
+                                                    But, I don't know your full name, yet!
+                                                </span>
+                                            </div>
+                                        </div>
                                     </fieldset>
 
                                     <fieldset class="guest-item">
-                                        <legend>Entree preference</legend>
-                                        <p class="options">
-                                            <input id="g2-entree-poultry" class="g2-item guest-item-radio" name="g2-entree" type="radio" value="poultry" disabled>
-                                            <label class="guest-item-label btn" for="g2-entree-poultry">Poultry</label>
+                                        <legend>Entree preference?</legend>
+                                        <div class="entree-content guest-item-content">
+                                            <p class="options">
+                                                <input id="g2-entree-poultry" class="g2-item item-entree guest-item-radio" name="g2-entree" type="radio" value="poultry" disabled>
+                                                <label class="item-entree-label guest-item-label btn" for="g2-entree-poultry">Poultry</label>
 
-                                            <input id="g2-entree-beef" class="g2-item guest-item-radio" name="g2-entree" type="radio" value="beef" disabled>
-                                            <label class="guest-item-label btn" for="g2-entree-beef">Beef</label>
+                                                <input id="g2-entree-beef" class="g2-item item-entree guest-item-radio" name="g2-entree" type="radio" value="beef" disabled>
+                                                <label class="item-entree-label guest-item-label btn" for="g2-entree-beef">Beef</label>
 
-                                            <input id="g2-entree-veg" class="g2-item guest-item-radio" name="g2-entree" type="radio" value="veg" disabled>
-                                            <label class="guest-item-label btn" for="g2-entree-veg">Vegetarian</label>
-                                        </p>
+                                                <input id="g2-entree-veg" class="g2-item item-entree guest-item-radio" name="g2-entree" type="radio" value="veg" disabled>
+                                                <label class="item-entree-label guest-item-label btn" for="g2-entree-veg">Vegetarian</label>
+                                            </p>
+                                            <div class="error">
+                                                <i class="material-icons">error_outline</i>
+                                                <span class="error-message rsvp-selected">
+                                                    You're not attending <strong>and</strong> you want food?
+                                                </span>
+                                                <span class="error-message rsvp-not-selected hidden">
+                                                    Please let us know if you're attending, first!
+                                                </span>
+                                            </div>
+                                        </div>
                                     </fieldset>
                                 </div>
 

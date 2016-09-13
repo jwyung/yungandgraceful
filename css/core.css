@@ -1656,6 +1656,9 @@ fieldset {
 .stealth {
   visibility: hidden !important; }
 
+html.modal-visible {
+  overflow: hidden; }
+
 .hero {
   background-image: url("../images/couple_portrait.jpg");
   position: relative;
@@ -1919,6 +1922,16 @@ fieldset {
   .location .time:before {
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjEyOHB4IiBoZWlnaHQ9IjEyOHB4IiB2aWV3Qm94PSIwIDAgOTcuMTYgOTcuMTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDk3LjE2IDk3LjE2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQ4LjU4LDBDMjEuNzkzLDAsMCwyMS43OTMsMCw0OC41OHMyMS43OTMsNDguNTgsNDguNTgsNDguNThzNDguNTgtMjEuNzkzLDQ4LjU4LTQ4LjU4Uzc1LjM2NywwLDQ4LjU4LDB6IE00OC41OCw4Ni44MjMgICAgYy0yMS4wODcsMC0zOC4yNDQtMTcuMTU1LTM4LjI0NC0zOC4yNDNTMjcuNDkzLDEwLjMzNyw0OC41OCwxMC4zMzdTODYuODI0LDI3LjQ5Miw4Ni44MjQsNDguNThTNjkuNjY3LDg2LjgyMyw0OC41OCw4Ni44MjN6IiBmaWxsPSIjY2U5M2Q4Ii8+CgkJPHBhdGggZD0iTTczLjg5OCw0Ny4wOEg1Mi4wNjZWMjAuODNjMC0yLjIwOS0xLjc5MS00LTQtNGMtMi4yMDksMC00LDEuNzkxLTQsNHYzMC4yNWMwLDIuMjA5LDEuNzkxLDQsNCw0aDI1LjgzMiAgICBjMi4yMDksMCw0LTEuNzkxLDQtNFM3Ni4xMDcsNDcuMDgsNzMuODk4LDQ3LjA4eiIgZmlsbD0iI2NlOTNkOCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
     margin-bottom: 49px; }
+  .location .extra-info-container {
+    margin-top: 100px; }
+  .location .extra-info-btn {
+    font-size: 18px;
+    color: #000;
+    background-color: rgba(244, 254, 248, 0.6); }
+    .location .extra-info-btn:first-child {
+      margin-right: 18px; }
+    .location .extra-info-btn:hover, .location .extra-info-btn:focus {
+      background-color: rgba(249, 255, 251, 0.6); }
 
 .rsvp {
   color: #455a64; }
@@ -1943,7 +1956,13 @@ fieldset {
     text-align: center;
     margin: auto auto 83px auto; }
     .rsvp-form .guest .options {
-      text-align: center; }
+      text-align: center;
+      -webkit-transition: opacity 0.8s;
+      -moz-transition: opacity 0.8s;
+      -o-transition: opacity 0.8s;
+      -ms-transition: opacity 0.8s;
+      transition: opacity 0.8s;
+      will-change: opacity; }
   .rsvp-form .guest-name {
     margin-top: 25px; }
   .rsvp-form .guest-items {
@@ -1951,6 +1970,26 @@ fieldset {
     width: 100%; }
   .rsvp-form .guest-item {
     margin-top: 40px; }
+    .rsvp-form .guest-item .guest-item-content {
+      position: relative;
+      -webkit-transition: transform 0.8s;
+      -moz-transition: transform 0.8s;
+      -o-transition: transform 0.8s;
+      -ms-transition: transform 0.8s;
+      transition: transform 0.8s;
+      will-change: transform; }
+      .rsvp-form .guest-item .guest-item-content.show-error {
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%); }
+        .rsvp-form .guest-item .guest-item-content.show-error .options {
+          opacity: 0;
+          pointer-events: none; }
+        .rsvp-form .guest-item .guest-item-content.show-error .error {
+          opacity: 0.9;
+          pointer-events: auto; }
     .rsvp-form .guest-item .guest-item-label {
       background-color: #fff;
       color: #000;
@@ -1959,6 +1998,35 @@ fieldset {
       border: 1px solid rgba(0, 0, 0, 0.5); }
       .rsvp-form .guest-item .guest-item-label:before, .rsvp-form .guest-item .guest-item-label:after {
         display: none; }
+    .rsvp-form .guest-item .error {
+      position: absolute;
+      top: 0;
+      font-size: 24px;
+      line-height: 48px;
+      width: 100%;
+      color: #b71c1c;
+      border: 1px dashed #b71c1c;
+      opacity: 0;
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+      transform: translateX(100%);
+      -webkit-transition: opacity 0.8s;
+      -moz-transition: opacity 0.8s;
+      -o-transition: opacity 0.8s;
+      -ms-transition: opacity 0.8s;
+      transition: opacity 0.8s;
+      will-change: opacity;
+      pointer-events: none; }
+      .rsvp-form .guest-item .error .material-icons {
+        -webkit-transform: translateY(3px);
+        -moz-transform: translateY(3px);
+        -ms-transform: translateY(3px);
+        -o-transform: translateY(3px);
+        transform: translateY(3px);
+        font-size: 23px;
+        margin-right: 4px; }
   .rsvp-form.submitted .g1,
   .rsvp-form.submitted .g2,
   .rsvp-form.submitted .rsvp-btn {
