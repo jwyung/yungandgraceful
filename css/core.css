@@ -1650,9 +1650,12 @@ fieldset {
   .unstyled-btn:hover, .unstyled-btn:focus {
     background: none; }
 
-@media only screen and (max-width: 414px) {
-  .mobile-break {
-    display: block; } }
+.mobile-break-text:before {
+  content: " "; }
+  @media only screen and (max-width: 320px) {
+    .mobile-break-text:before {
+      display: block;
+      content: ""; } }
 
 @media only screen and (max-width: 414px) {
   .container .row {
@@ -1693,10 +1696,12 @@ html.modal-visible {
     color: #455a64; }
   .hero .title {
     font-size: 60px;
-    margin-bottom: 18px; }
-    @media only screen and (max-width: 414px) {
+    margin-bottom: 18px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media only screen and (max-width: 540px) {
       .hero .title {
-        font-size: 45px; } }
+        font-size: 38px; } }
   .hero .hash {
     opacity: 0.23; }
   .hero .coming-soon {
@@ -1708,11 +1713,11 @@ html.modal-visible {
     padding-left: 11px;
     padding-right: 12px;
     padding-bottom: 1px; }
-    @media only screen and (max-width: 414px) {
+    @media only screen and (max-width: 540px) {
       .hero .coming-soon {
-        font-size: 17px;
+        font-size: 16px;
         line-height: 33px;
-        padding-left: 9px;
+        padding-left: 10px;
         padding-right: 10px; } }
 
 .container {
@@ -1733,27 +1738,38 @@ html.modal-visible {
   @media only screen and (max-width: 414px) {
     .container {
       padding-top: 100px;
-      padding-bottom: 100px; } }
+      padding-bottom: 100px;
+      font-size: 18px; } }
 
 .title {
-  font-family: "LatoWebThin";
+  font-family: "LatoWebLight";
   font-size: 52px;
   font-weight: 900; }
   @media only screen and (max-width: 768px) {
     .title {
       font-size: 45px; } }
-  .title .mobile-break:before {
-    content: " "; }
-    @media only screen and (max-width: 414px) {
-      .title .mobile-break:before {
-        content: ""; } }
+  @media only screen and (max-width: 414px) {
+    .title {
+      font-family: "LatoWeb";
+      font-size: 33px;
+      font-weight: 500; } }
 
 .muted-text {
   font-size: 24px;
-  opacity: 0.75; }
+  opacity: 0.8; }
   @media only screen and (max-width: 768px) {
     .muted-text {
       font-size: 20px; } }
+  @media only screen and (max-width: 414px) {
+    .muted-text {
+      font-size: 17px; } }
+
+.introduction .description {
+  margin-top: 1em; }
+
+@media only screen and (min-width: 768px) {
+  .description-paragraph {
+    display: inline; } }
 
 .widescreen-aspect-ratio {
   width: 100%;
@@ -1775,6 +1791,8 @@ html.modal-visible {
   -o-transition: opacity 1s;
   -ms-transition: opacity 1s;
   transition: opacity 1s; }
+  .is-mobile .example:before {
+    pointer-events: none; }
 .example:after {
   content: "";
   display: block;
@@ -1791,6 +1809,8 @@ html.modal-visible {
   -ms-transition: opacity 1s;
   transition: opacity 1s;
   will-change: opacity; }
+  .is-mobile .example:after {
+    pointer-events: none; }
   @media only screen and (max-width: 640px) {
     .example:after {
       background-size: cover; } }
@@ -1828,11 +1848,15 @@ html.modal-visible {
   -o-transition: opacity 1s;
   -ms-transition: opacity 1s;
   transition: opacity 1s; }
+  .is-mobile .example .container {
+    pointer-events: none; }
   @media only screen and (max-width: 640px) {
     .example .container {
       position: relative; } }
 .example .play-btn {
   overflow: visible; }
+  .is-mobile .example .play-btn {
+    pointer-events: none; }
 .example .play-icon {
   display: flex;
   align-items: center;
@@ -1931,6 +1955,9 @@ html.modal-visible {
   @media only screen and (max-width: 768px) {
     .quote .description {
       font-size: 28px; } }
+  @media only screen and (max-width: 414px) {
+    .quote .description {
+      font-size: 25px; } }
   @media only screen and (max-width: 768px) {
     .quote .description {
       padding-left: 0;
@@ -1949,6 +1976,10 @@ html.modal-visible {
     background-image: url("../images/ritz.jpg");
     opacity: 0.1;
     -webkit-filter: blur(2px); }
+  @media only screen and (max-width: 414px) {
+    .location .title .mobile-break-text {
+      display: block;
+      content: ""; } }
   .location .info {
     margin-top: 100px; }
     @media only screen and (max-width: 540px) {
@@ -1998,17 +2029,15 @@ html.modal-visible {
     .location .extra-info-btn:hover, .location .extra-info-btn:focus {
       background-color: rgba(249, 255, 251, 0.6); }
 
-.rsvp {
-  color: #455a64; }
-  .rsvp .description + .muted-text {
-    -webkit-transform: translateY(-12px);
-    -moz-transform: translateY(-12px);
-    -ms-transform: translateY(-12px);
-    -o-transform: translateY(-12px);
-    transform: translateY(-12px); }
-    @media only screen and (max-width: 540px) {
-      .rsvp .description + .muted-text {
-        margin-bottom: 0; } }
+.rsvp .description + .muted-text {
+  -webkit-transform: translateY(-12px);
+  -moz-transform: translateY(-12px);
+  -ms-transform: translateY(-12px);
+  -o-transform: translateY(-12px);
+  transform: translateY(-12px); }
+  @media only screen and (max-width: 540px) {
+    .rsvp .description + .muted-text {
+      margin-bottom: 0; } }
 
 .rsvp-form {
   position: relative;
@@ -2041,6 +2070,10 @@ html.modal-visible {
     width: 100%; }
   .rsvp-form .guest-item {
     margin-top: 40px; }
+    @media only screen and (max-width: 414px) {
+      .rsvp-form .guest-item legend {
+        font-size: 23px;
+        font-weight: 900; } }
     .rsvp-form .guest-item .guest-item-content {
       position: relative;
       -webkit-transition: transform 0.8s;
@@ -2197,6 +2230,9 @@ html.modal-visible {
   font-size: 25px;
   text-align: center;
   margin-bottom: 0; }
+  @media only screen and (max-width: 414px) {
+    .input-field .input-text {
+      font-size: 20px; } }
   .g1 .input-field .input-text:focus {
     border-color: #e1f5fe !important;
     box-shadow: 0 1px 0 0 #e1f5fe !important; }
@@ -2265,14 +2301,16 @@ html.modal-visible {
   height: 50px;
   background-color: #FFDBB2;
   color: #000;
-  border: 1px solid transparent; }
+  border: 1px solid transparent;
+  font-weight: 900; }
   .rsvp-btn:hover, .rsvp-btn:focus {
     background-color: #ffe0bc; }
   .rsvp-btn:disabled {
     background-color: #FFDBB2;
     box-shadow: none;
     opacity: 0.8;
-    border: 1px solid #ffe7cc; }
+    border: 1px solid #ffe7cc;
+    font-weight: 500; }
   @media only screen and (max-width: 540px) {
     .rsvp-btn {
       width: 100%; } }

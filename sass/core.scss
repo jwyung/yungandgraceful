@@ -14,6 +14,7 @@ $tablet-portrait: 768px;
 $phone-landscape: 640px;
 $mobile-small: 540px;
 $phone-large-portrait: 414px;
+$phone-small-portrait: 320px;
 
 %background-stretch {
 	background-size: cover;
@@ -55,9 +56,14 @@ fieldset {
 	}
 }
 
-.mobile-break {
-	@media only screen and (max-width: $phone-large-portrait) {
-		display: block;
+.mobile-break-text {
+	&:before {
+		content: " ";
+
+		@media only screen and (max-width: $phone-small-portrait) {
+			display: block;
+			content: "";
+		}
 	}
 }
 
@@ -116,9 +122,11 @@ html {
 	.title {
 		font-size: 60px;
 		margin-bottom: 18px;
+		padding-left: 15px;
+		padding-right: 15px;
 
-		@media only screen and (max-width: $phone-large-portrait) {
-			font-size: 45px;
+		@media only screen and (max-width: $mobile-small) {
+			font-size: 38px;
 		}
 	}
 
@@ -136,10 +144,10 @@ html {
 		padding-right: 12px;
 		padding-bottom: 1px;
 
-		@media only screen and (max-width: $phone-large-portrait) {
-			font-size: 17px;
+		@media only screen and (max-width: $mobile-small) {
+			font-size: 16px;
 			line-height: 33px;
-			padding-left: 9px;
+			padding-left: 10px;
 			padding-right: 10px;
 		}
 	}
@@ -165,11 +173,12 @@ html {
 	@media only screen and (max-width: $phone-large-portrait) {
 		padding-top: 100px;
 		padding-bottom: 100px;
+		font-size: 18px;
 	}
 }
 
 .title {
-	font-family: "LatoWebThin";
+	font-family: "LatoWebLight";
 	font-size: 52px;
 	font-weight: 900;
 
@@ -177,28 +186,39 @@ html {
 		font-size: 45px;
 	}
 
-	.mobile-break {
-		&:before {
-			content: " ";
+	@media only screen and (max-width: $phone-large-portrait) {
+		font-family: "LatoWeb";
+		font-size: 33px;
+		font-weight: 500;
 
-			@media only screen and (max-width: $phone-large-portrait) {
-				content: "";
-			}
-		}
 	}
 }
 
 .muted-text {
 	font-size: 24px;
-	opacity: 0.75;
+	opacity: 0.8;
 
 	@media only screen and (max-width: $tablet-portrait) {
 		font-size: 20px;
+	}
+
+	@media only screen and (max-width: $phone-large-portrait) {
+		font-size: 17px;
 	}
 }
 
 .btn {
 	@extend %btn-size;
+}
+
+.introduction .description {
+	margin-top: 1em;
+}
+
+.description-paragraph {
+	@media only screen and (min-width: $tablet-portrait) {
+		display: inline;
+	}
 }
 
 $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 x 1080 <video>;
@@ -222,6 +242,10 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 		z-index: 1;
 		will-change: opacity;
 		@include transition(opacity 1s);
+
+		.is-mobile & {
+			pointer-events: none;
+		}
 	}
 
 	&:after {
@@ -237,6 +261,10 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 		opacity: 0.1;
 		@include transition(opacity 1s);
 		will-change: opacity;
+
+		.is-mobile & {
+			pointer-events: none;
+		}
 
 		@media only screen and (max-width: $phone-landscape) {
 			background-size: cover;
@@ -278,6 +306,10 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 		overflow: hidden;
 		@include transition(opacity 1s);
 
+		.is-mobile & {
+			pointer-events: none;
+		}
+
 		@media only screen and (max-width: $phone-landscape) {
 			position: relative;
 		}
@@ -285,6 +317,10 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 
 	.play-btn {
 		overflow: visible;
+
+		.is-mobile & {
+			pointer-events: none;
+		}
 	}
 
 	.play-icon {
@@ -391,6 +427,10 @@ $examples: (gaming, #FFEBF9),
 			font-size: 28px;
 		}
 
+		@media only screen and (max-width: $phone-large-portrait) {
+			font-size: 25px;
+		}
+
 		@media only screen and (max-width: $tablet-portrait) {
 			padding-left: 0;
 			padding-right: 0;
@@ -414,6 +454,15 @@ $examples: (gaming, #FFEBF9),
 		@extend %background-stretch;
 		opacity: 0.1;
 		-webkit-filter: blur(2px);
+	}
+
+	.title {
+		.mobile-break-text {
+			@media only screen and (max-width: $phone-large-portrait) {
+				display: block;
+				content: "";
+			}
+		}
 	}
 
 	.info {
@@ -508,8 +557,6 @@ $rsvp_color_primary: $orange;
 $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 
 .rsvp {
-	color: color("blue-grey", "darken-2");
-
 	.description + .muted-text {
 		@include transform(translateY(-12px));
 
@@ -558,6 +605,13 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 
 	.guest-item {
 		margin-top: 40px;
+
+		legend {
+			@media only screen and (max-width: $phone-large-portrait) {
+				font-size: 23px;
+				font-weight: 900;
+			}
+		}
 
 		.guest-item-content {
 			position: relative;
@@ -740,6 +794,10 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 		text-align: center;
 		margin-bottom: 0;
 
+		@media only screen and (max-width: $phone-large-portrait) {
+			font-size: 20px;
+		}
+
 		&:focus {
 			.g1 & {
 				border-color: $rsvp_g1_color_accent_hover !important;
@@ -827,6 +885,7 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 	background-color: $rsvp_color_primary;
 	color: #000;
 	border: 1px solid transparent;
+	font-weight: 900;
 
 	&:hover,
 	&:focus {
@@ -838,6 +897,7 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 		box-shadow: none;
 		opacity: 0.8;
 		border: 1px solid lighten($rsvp_color_primary, 5%);
+		font-weight: 500;
 	}
 
 	@media only screen and (max-width: $mobile-small) {
