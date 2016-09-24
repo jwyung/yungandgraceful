@@ -1618,7 +1618,7 @@
 .transparent-text {
   color: transparent !important; }
 
-.hero, .example:after, .location:before, .location .with-icon:before, .confirmation:after {
+.hero, .example:after, .location:before, .location .with-icon:before, .confirmation:before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; }
@@ -1832,7 +1832,20 @@ html.modal-visible {
   transition: opacity 1s;
   will-change: opacity;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  cursor: pointer; }
+  .is-mobile .example .example-video {
+    -webkit-transform: translateY(65%);
+    -moz-transform: translateY(65%);
+    -ms-transform: translateY(65%);
+    -o-transform: translateY(65%);
+    transform: translateY(65%); }
+  .example .example-video.mobile-playing {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
 .example .container {
   display: flex;
   align-items: center;
@@ -1848,14 +1861,14 @@ html.modal-visible {
   -o-transition: opacity 1s;
   -ms-transition: opacity 1s;
   transition: opacity 1s; }
-  .is-mobile .example .container {
+  .is-mobile-init .example .container {
     pointer-events: none; }
   @media only screen and (max-width: 640px) {
     .example .container {
       position: relative; } }
 .example .play-btn {
   overflow: visible; }
-  .is-mobile .example .play-btn {
+  .is-mobile-init .example .play-btn {
     pointer-events: none; }
 .example .play-icon {
   display: flex;
@@ -1888,6 +1901,12 @@ html.modal-visible {
   left: 0;
   padding-bottom: calc(56.25% - 39px);
   cursor: pointer; }
+  .is-mobile .video-mask {
+    padding-bottom: 0;
+    height: 100%;
+    pointer-events: none; }
+  .playing .video-mask {
+    pointer-events: auto; }
 
 .gaming {
   position: relative;
@@ -2028,6 +2047,12 @@ html.modal-visible {
           margin-bottom: 30px; } }
     .location .extra-info-btn:hover, .location .extra-info-btn:focus {
       background-color: rgba(249, 255, 251, 0.6); }
+  .location .navigate-map-btn {
+    display: none; }
+  .is-mobile .location .navigate-map-btn {
+    display: inline-block; }
+  .is-mobile .location .view-map-btn {
+    display: none; }
 
 .rsvp .description + .muted-text {
   -webkit-transform: translateY(-12px);
@@ -2140,33 +2165,15 @@ html.modal-visible {
         transform: translateY(3px);
         font-size: 23px;
         margin-right: 4px; }
-  .rsvp-form.submitted .g1,
-  .rsvp-form.submitted .g2,
   .rsvp-form.submitted .rsvp-btn {
-    -webkit-transition: transform 1s, opacity 1s;
-    -moz-transition: transform 1s, opacity 1s;
-    -o-transition: transform 1s, opacity 1s;
-    -ms-transition: transform 1s, opacity 1s;
-    transition: transform 1s, opacity 1s;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s;
     opacity: 0; }
-  .rsvp-form.submitted .g1 {
-    -webkit-transform: translateY(-50px);
-    -moz-transform: translateY(-50px);
-    -ms-transform: translateY(-50px);
-    -o-transform: translateY(-50px);
-    transform: translateY(-50px); }
-  .rsvp-form.submitted .g2 {
-    -webkit-transform: translateY(-50px);
-    -moz-transform: translateY(-50px);
-    -ms-transform: translateY(-50px);
-    -o-transform: translateY(-50px);
-    transform: translateY(-50px); }
-  .rsvp-form.submitted .rsvp-btn {
-    -webkit-transform: translateX(-50%) translateY(10px);
-    -moz-transform: translateX(-50%) translateY(10px);
-    -ms-transform: translateX(-50%) translateY(10px);
-    -o-transform: translateX(-50%) translateY(10px);
-    transform: translateX(-50%) translateY(10px); }
+  .rsvp-form.done legend {
+    opacity: 0.5; }
 
 .guest-item-radio:not(:disabled):hover + .guest-item-label, .guest-item-radio:not(:disabled):focus + .guest-item-label {
   border: 1px solid transparent;
@@ -2190,7 +2197,7 @@ html.modal-visible {
   position: relative; }
   .rsvp-main .spinner {
     position: absolute;
-    top: 71px;
+    bottom: -17px;
     width: 100%; }
 
 .rsvp-form .g2 {
@@ -2327,11 +2334,10 @@ html.modal-visible {
 
 .confirmation {
   position: absolute;
-  top: 102px;
+  bottom: -47px;
   width: 100%;
   opacity: 0;
   margin-top: -12px;
-  font-size: 30px;
   color: #03a9f4; }
   .confirmation.show {
     opacity: 1;
@@ -2345,20 +2351,27 @@ html.modal-visible {
     -ms-transform: translateY(-10px);
     -o-transform: translateY(-10px);
     transform: translateY(-10px); }
-  .confirmation:after {
+  .confirmation:before {
     content: "";
-    display: block;
+    display: inline-block;
     position: relative;
-    top: 25px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: 256px;
-    height: 256px;
-    background-image: url("../images/hugging_emoji.png"); }
+    top: 21px;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background-image: url("../images/hugging_emoji.png");
+    margin-right: 15px; }
+  .confirmation .failure {
+    display: none; }
+  .confirmation.error:before {
+    display: none; }
+  .confirmation.error .success {
+    display: none; }
+  .confirmation.error .failure {
+    display: inline; }
+  @media only screen and (max-width: 414px) {
+    .confirmation:before {
+      top: 37px; } }
 
 .ritz-map-modal {
   position: fixed;

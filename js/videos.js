@@ -1,10 +1,43 @@
+var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+
+var $html = $('html');
 var $examples = $('.example');
+
+var players = {
+	'gaming-video': null,
+	'weirdness-video': null
+};
+
+var playersLoaded = {
+	'gaming-video': false,
+	'weirdness-video': false
+};
 
 $('.example')
 	.on('click', '.play-btn', play)
 	.on('click', '.video-mask', pause)
 	.on('mouseover', '.example-video', showControls)
 	.on('mousedown', '.example-video', hideControls);
+
+if (isMobile) {
+	$html.addClass('is-mobile is-mobile-init');
+	immediatelyReady();
+}
+
+function immediatelyReady() {
+	for (var videoId in playersLoaded) {
+		playersLoaded[videoId] = true;
+		enablePlayButton(videoId);
+	}
+}
+
+function showVideo() {
+	$(this).closest('.example').addClass('playing video-loaded');
+}
+
+function hideVideo() {
+	$(this).closest('.example').removeClass('playing');
+}
 
 function play() {
 	var $example = $(this).closest('.example');
@@ -16,7 +49,8 @@ function play() {
 		}
 	});
 
-	$example.addClass('playing video-loaded');
+	showVideo.call(this);
+
 	playVideo(videoId);
 }
 
@@ -24,8 +58,12 @@ function pause() {
 	var $example = $(this).closest('.example');
 	var videoId = $(this).closest('.example').find('.example-video').attr('id');
 
-	$example.removeClass('playing');
+	hideVideo.call(this);
 	pauseVideo(videoId);
+}
+
+function enablePlayButton(videoId) {
+	$('.' + videoId).closest('.example').find('.play-btn').removeAttr('disabled');
 }
 
 function showControls() {
@@ -54,18 +92,12 @@ function pauseVideo(videoId) {
 	}
 }
 
-var players = {
-	'gaming-video': null,
-	'weirdness-video': null
-};
-
-var playersLoaded = {
-	'gaming-video': false,
-	'weirdness-video': false
-};
-
 function onYouTubeIframeAPIReady() {
 	loadFirstVideo();
+
+	if (isMobile) {
+		loadRemainingVideos();
+	}
 }
 
 function loadFirstVideo() {
@@ -113,18 +145,31 @@ function onPlayerStateChange(evt) {
 		if (!playersLoaded[videoId]) {
 			playersLoaded[videoId] = true;
 			players[videoId].pauseVideo();
-			$('.' + videoId).closest('.example').find('.play-btn').removeAttr('disabled');
+			enablePlayButton(videoId);
 
 			if (videoId === 'gaming-video') {
 				loadRemainingVideos();
 			}
+
+			return;
 		}
+
+		if (isMobile) {
+			$(evt.target.a).addClass('mobile-playing');
+		}
+
+		if ($html.hasClass('is-mobile-init')) {
+			showVideo.call(evt.target.a);
+		}
+
+		$html.removeClass('is-mobile-init');
 	}
 
 	if (evt.data === YT.PlayerState.ENDED) {
 		var videoId = $(evt.target.a).attr('id');
 
 		players[videoId].playVideo();
+
 		pause.call(evt.target.a);
 	}
 }
