@@ -349,6 +349,10 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 		&:focus {
 			text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15);
 		}
+
+		@media only screen and (max-width: $phone-large-portrait) {
+			font-size: 65px;
+		}
 	}
 
 	.content {
@@ -397,7 +401,7 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 
 $examples: (gaming, #FFEBF9),
 		   (weirdness, #FFF3EB),
-		   (road-trip, #FFEBEE);
+		   (proposal, #FFFFFF);
 
 @each $example, $color in $examples {
 	.#{$example} {
@@ -422,6 +426,10 @@ $examples: (gaming, #FFEBF9),
 			background-color: darken(#EBFFFB, 10%);
 		}
 	}
+}
+
+.proposal {
+	margin-top: 100px;
 }
 
 .quote {

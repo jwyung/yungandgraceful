@@ -1867,7 +1867,9 @@ html.modal-visible {
     .example .container {
       position: relative; } }
 .example .play-btn {
-  overflow: visible; }
+  overflow: visible;
+  width: 40px;
+  height: 40px; }
   .is-mobile-init .example .play-btn {
     pointer-events: none; }
 .example .play-icon {
@@ -1881,6 +1883,9 @@ html.modal-visible {
   pointer-events: none; }
   .example .play-icon:hover, .example .play-icon:focus {
     text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15); }
+  @media only screen and (max-width: 414px) {
+    .example .play-icon {
+      font-size: 65px; } }
 .example .content {
   width: 675px; }
 .example .btn {
@@ -1936,19 +1941,22 @@ html.modal-visible {
   .weirdness-btn:hover, .weirdness-btn:focus {
     background-color: #b8fff1; }
 
-.road-trip {
+.proposal {
   position: relative;
-  background-color: #FFEBEE; }
-  .road-trip:before {
-    background: linear-gradient(to bottom, rgba(255, 235, 238, 0.1), #ffebee); }
-  .road-trip:after {
-    background-image: url("../images/road-trip_frame.jpg"); }
+  background-color: #FFFFFF; }
+  .proposal:before {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), white); }
+  .proposal:after {
+    background-image: url("../images/proposal_frame.jpg"); }
 
-.road-trip-btn {
+.proposal-btn {
   background-color: #d2fff6;
   color: #000; }
-  .road-trip-btn:hover, .road-trip-btn:focus {
+  .proposal-btn:hover, .proposal-btn:focus {
     background-color: #b8fff1; }
+
+.proposal {
+  margin-top: 100px; }
 
 .quote .description {
   position: relative;

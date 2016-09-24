@@ -1,4 +1,6 @@
-var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+var userAgent = navigator.userAgent;
+var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent));
+var isSafari = (/(Safari)/i).test(userAgent) && !(/(Chrome)/i).test(userAgent);
 
 var $html = $('html');
 var $examples = $('.example');
@@ -24,6 +26,10 @@ $('.example')
 if (isMobile) {
 	$html.addClass('is-mobile is-mobile-init');
 	immediatelyReady();
+}
+
+if (isSafari) {
+	$html.addClass('is-safari');
 }
 
 function immediatelyReady() {
@@ -136,7 +142,7 @@ function loadRemainingVideos() {
     });
 
     players['proposal-video'] = new YT.Player('proposal-video', {
-        videoId: 'WwG7cFi3rxg',
+        videoId: 'uUqxqRvBiqk',
 	suggestedQuality: 'highres',
         playerVars: {
             color: 'white',
