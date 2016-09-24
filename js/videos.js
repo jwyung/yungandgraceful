@@ -127,7 +127,7 @@ function loadFirstVideo() {
 
 function loadRemainingVideos() {
     players['weirdness-video'] = new YT.Player('weirdness-video', {
-        videoId: 'zaPnteG4COI',
+        videoId: 'XaoPhgW9t04',
 	suggestedQuality: 'highres',
         playerVars: {
             color: 'white',
