@@ -70,9 +70,6 @@
 	});
 
 	$rsvpForm.on('submit', function(e) {
-		// TODO: this is not ready yet. Let's not do anything
-		return false;
-
 		$rsvpForm.addClass('submitted');
 		var $spinner = $('.spinner .preloader-wrapper').addClass('active show');
 
@@ -84,6 +81,14 @@
 			success: function() {
 				$spinner.removeClass('show');
 				$('.confirmation').addClass('show');
+				$rsvpForm.addClass('done');
+				$rsvpForm.find('input').attr('disabled', true);
+			},
+			error: function(data) {
+				$spinner.removeClass('show');
+				$('.confirmation').addClass('show error');
+				$rsvpForm.addClass('done');
+				$rsvpForm.find('input').attr('disabled', true);
 			}
 		});
 
