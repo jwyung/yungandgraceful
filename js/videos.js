@@ -5,12 +5,14 @@ var $examples = $('.example');
 
 var players = {
 	'gaming-video': null,
-	'weirdness-video': null
+	'weirdness-video': null,
+	'proposal-video': null
 };
 
 var playersLoaded = {
 	'gaming-video': false,
-	'weirdness-video': false
+	'weirdness-video': false,
+	'proposal-video': false
 };
 
 $('.example')
@@ -132,6 +134,21 @@ function loadRemainingVideos() {
             onStateChange: onPlayerStateChange
         }
     });
+
+    players['proposal-video'] = new YT.Player('proposal-video', {
+        videoId: 'WwG7cFi3rxg',
+	suggestedQuality: 'highres',
+        playerVars: {
+            color: 'white',
+            rel: 0,
+            showinfo: 0,
+            autoplay: 1
+        },
+        events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+        }
+    });
 }
 
 
@@ -163,6 +180,11 @@ function onPlayerStateChange(evt) {
 		}
 
 		$html.removeClass('is-mobile-init');
+	}
+
+	if (evt.data === YT.PlayerState.PAUSED) {
+		var videoId = $(evt.target.a).attr('id');
+		pause.call(evt.target.a);
 	}
 
 	if (evt.data === YT.PlayerState.ENDED) {
