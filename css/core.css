@@ -1834,18 +1834,6 @@ html.modal-visible {
   width: 100%;
   height: 100%;
   cursor: pointer; }
-  .is-mobile .example .example-video {
-    -webkit-transform: translateY(65%);
-    -moz-transform: translateY(65%);
-    -ms-transform: translateY(65%);
-    -o-transform: translateY(65%);
-    transform: translateY(65%); }
-  .example .example-video.mobile-playing {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); }
 .example .container {
   display: flex;
   align-items: center;

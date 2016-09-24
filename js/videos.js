@@ -177,10 +177,6 @@ function onPlayerStateChange(evt) {
 			return;
 		}
 
-		if (isMobile) {
-			$(evt.target.a).addClass('mobile-playing');
-		}
-
 		if ($html.hasClass('is-mobile-init')) {
 			showVideo.call(evt.target.a);
 		}
