@@ -21,7 +21,14 @@ $('.example')
 	.on('click', '.play-btn', play)
 	.on('click', '.video-mask', pause)
 	.on('mouseover', '.example-video', showControls)
-	.on('mousedown', '.example-video', hideControls);
+	.on('mousedown', '.example-video', hideControls)
+	.on('click', '.example-video', function(e) {
+		debugger;
+	});
+
+$('.example-video').on('click', function() {
+	debugger;
+})
 
 if (isMobile) {
 	$html.addClass('is-mobile is-mobile-init');
@@ -162,6 +169,18 @@ function onPlayerReady(evt) {
 }
 
 function onPlayerStateChange(evt) {
+	if (evt.data === YT.PlayerState.UNSTARTED) {
+		if (isMobile) {
+			$(evt.target.a).addClass('mobile-playing');
+		}
+
+		if ($html.hasClass('is-mobile-init')) {
+			showVideo.call(evt.target.a);
+		}
+
+		$html.removeClass('is-mobile-init');
+	}
+
 	if (evt.data === YT.PlayerState.PLAYING) {
 		var videoId = $(evt.target.a).attr('id');
 
@@ -176,12 +195,6 @@ function onPlayerStateChange(evt) {
 
 			return;
 		}
-
-		if ($html.hasClass('is-mobile-init')) {
-			showVideo.call(evt.target.a);
-		}
-
-		$html.removeClass('is-mobile-init');
 	}
 
 	if (evt.data === YT.PlayerState.PAUSED) {

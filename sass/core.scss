@@ -294,6 +294,16 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 		width: 100%;
 		height: 100%;
 		cursor: pointer;
+
+		.is-mobile & {
+			// push the actual iframe down such that when users click on the play button,
+			// they are actually clicking on the iframe to play video via pointer-events: none trickery
+			@include transform(translateY(65%));
+		}
+
+		&.mobile-playing {
+			@include transform(translateY(0));
+		}
 	}
 
 	.container {
