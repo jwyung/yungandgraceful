@@ -1883,6 +1883,12 @@ html.modal-visible {
   pointer-events: none; }
   .example .play-icon:hover, .example .play-icon:focus {
     text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15); }
+  .is-safari .example .play-icon {
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%); }
   @media only screen and (max-width: 414px) {
     .example .play-icon {
       font-size: 65px; } }

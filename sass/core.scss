@@ -329,6 +329,8 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 
 	.play-btn {
 		overflow: visible;
+		width: 40px;
+		height: 40px;
 
 		.is-mobile-init & {
 			pointer-events: none;
@@ -348,6 +350,10 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 		&:hover,
 		&:focus {
 			text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15);
+		}
+
+		.is-safari & {
+			@include transform(translateX(-50%));
 		}
 
 		@media only screen and (max-width: $phone-large-portrait) {
