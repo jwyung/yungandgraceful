@@ -174,11 +174,16 @@ function onPlayerStateChange(evt) {
 			$(evt.target.a).addClass('mobile-playing');
 		}
 
-		if ($html.hasClass('is-mobile-init')) {
-			showVideo.call(evt.target.a);
-		}
+		// Intermittently, the iframe is not positioned correctly before showVideo().
+		// By ensuring class `mobile-playing` is applied before showVideo(), we always
+		// have video positioned correctly first.
+		setTimeout(function() {
+			if ($html.hasClass('is-mobile-init')) {
+				showVideo.call(evt.target.a);
+			}
 
-		$html.removeClass('is-mobile-init');
+			$html.removeClass('is-mobile-init');
+		}, 0);
 	}
 
 	if (evt.data === YT.PlayerState.PLAYING) {
@@ -194,6 +199,10 @@ function onPlayerStateChange(evt) {
 			}
 
 			return;
+		}
+
+		if (isMobile) {
+			$(evt.target.a).closest('.example').addClass('mobile-loaded');
 		}
 	}
 

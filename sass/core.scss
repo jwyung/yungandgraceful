@@ -400,7 +400,7 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 		pointer-events: none;
 	}
 
-	.playing & {
+	.mobile-loaded.playing & {
 		pointer-events: auto;
 	}
 }
@@ -418,8 +418,11 @@ $examples: (gaming, #FFEBF9),
 			background: linear-gradient(to bottom,rgba($color, 0.1) ,rgba($color, 1));
 		}
 
-		&:after {
-			background-image: url('../images/#{$example}_frame.jpg');
+		// for proposal container, we want a clean background (#ffffff) to blend well with the video
+		@if $example != proposal {
+			&:after {
+				background-image: url('../images/#{$example}_frame.jpg');
+			}
 		}
 	}
 

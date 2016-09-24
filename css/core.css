@@ -1916,7 +1916,7 @@ html.modal-visible {
     padding-bottom: 0;
     height: 100%;
     pointer-events: none; }
-  .playing .video-mask {
+  .mobile-loaded.playing .video-mask {
     pointer-events: auto; }
 
 .gaming {
@@ -1952,8 +1952,6 @@ html.modal-visible {
   background-color: #FFFFFF; }
   .proposal:before {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), white); }
-  .proposal:after {
-    background-image: url("../images/proposal_frame.jpg"); }
 
 .proposal-btn {
   background-color: #d2fff6;
