@@ -660,8 +660,8 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 
 		.options {
 			text-align: center;
-			@include transition(opacity 0.8s);
-			will-change: opacity;
+			@include transition(transform 0.8s, opacity 0.8s);
+			will-change: transform, opacity;
 		}
 	}
 
@@ -686,20 +686,17 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 
 		.guest-item-content {
 			position: relative;
-			@include transition(transform 0.8s);
-			will-change: transform;
 			overflow: hidden;
 
 			&.show-error {
-				@include transform(translateX(-100%));
-				overflow: visible;
-
 				.options {
+					@include transform(translateX(-100%));
 					opacity: 0;
 					pointer-events: none;
 				}
 
 				.error {
+					@include transform(translateX(0));
 					opacity: 0.9;
 					pointer-events: auto;
 				}
@@ -738,11 +735,12 @@ $rsvp_color_primary_hover: lighten($rsvp_color_primary, 2%);
 			border: 1px dashed $error_color;
 			opacity: 0;
 			@include transform(translateX(100%));
-			@include transition(opacity 0.8s);
-			will-change: opacity;
+			@include transition(transform 0.8s, opacity 0.8s);
+			will-change: transform, opacity;
 			pointer-events: none;
 			padding-left: 10px;
 			padding-right: 10px;
+			text-align: center;
 
 			.material-icons {
 				@include transform(translateY(3px));

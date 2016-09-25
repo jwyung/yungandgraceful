@@ -2122,12 +2122,12 @@ html.modal-visible {
     margin: auto auto 83px auto; }
     .rsvp-form .guest .options {
       text-align: center;
-      -webkit-transition: opacity 0.8s;
-      -moz-transition: opacity 0.8s;
-      -o-transition: opacity 0.8s;
-      -ms-transition: opacity 0.8s;
-      transition: opacity 0.8s;
-      will-change: opacity; }
+      -webkit-transition: transform 0.8s, opacity 0.8s;
+      -moz-transition: transform 0.8s, opacity 0.8s;
+      -o-transition: transform 0.8s, opacity 0.8s;
+      -ms-transition: transform 0.8s, opacity 0.8s;
+      transition: transform 0.8s, opacity 0.8s;
+      will-change: transform, opacity; }
   .rsvp-form .guest-name {
     margin-top: 25px; }
   .rsvp-form .guest-items {
@@ -2141,26 +2141,23 @@ html.modal-visible {
         font-weight: 900; } }
     .rsvp-form .guest-item .guest-item-content {
       position: relative;
-      -webkit-transition: transform 0.8s;
-      -moz-transition: transform 0.8s;
-      -o-transition: transform 0.8s;
-      -ms-transition: transform 0.8s;
-      transition: transform 0.8s;
-      will-change: transform;
       overflow: hidden; }
-      .rsvp-form .guest-item .guest-item-content.show-error {
+      .rsvp-form .guest-item .guest-item-content.show-error .options {
         -webkit-transform: translateX(-100%);
         -moz-transform: translateX(-100%);
         -ms-transform: translateX(-100%);
         -o-transform: translateX(-100%);
         transform: translateX(-100%);
-        overflow: visible; }
-        .rsvp-form .guest-item .guest-item-content.show-error .options {
-          opacity: 0;
-          pointer-events: none; }
-        .rsvp-form .guest-item .guest-item-content.show-error .error {
-          opacity: 0.9;
-          pointer-events: auto; }
+        opacity: 0;
+        pointer-events: none; }
+      .rsvp-form .guest-item .guest-item-content.show-error .error {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 0.9;
+        pointer-events: auto; }
     .rsvp-form .guest-item .guest-item-label {
       background-color: #fff;
       color: #000;
@@ -2188,15 +2185,16 @@ html.modal-visible {
       -ms-transform: translateX(100%);
       -o-transform: translateX(100%);
       transform: translateX(100%);
-      -webkit-transition: opacity 0.8s;
-      -moz-transition: opacity 0.8s;
-      -o-transition: opacity 0.8s;
-      -ms-transition: opacity 0.8s;
-      transition: opacity 0.8s;
-      will-change: opacity;
+      -webkit-transition: transform 0.8s, opacity 0.8s;
+      -moz-transition: transform 0.8s, opacity 0.8s;
+      -o-transition: transform 0.8s, opacity 0.8s;
+      -ms-transition: transform 0.8s, opacity 0.8s;
+      transition: transform 0.8s, opacity 0.8s;
+      will-change: transform, opacity;
       pointer-events: none;
       padding-left: 10px;
-      padding-right: 10px; }
+      padding-right: 10px;
+      text-align: center; }
       .rsvp-form .guest-item .error .material-icons {
         -webkit-transform: translateY(3px);
         -moz-transform: translateY(3px);
