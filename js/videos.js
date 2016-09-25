@@ -21,14 +21,7 @@ $('.example')
 	.on('click', '.play-btn', play)
 	.on('click', '.video-mask', pause)
 	.on('mouseover', '.example-video', showControls)
-	.on('mousedown', '.example-video', hideControls)
-	.on('click', '.example-video', function(e) {
-		debugger;
-	});
-
-$('.example-video').on('click', function() {
-	debugger;
-})
+	.on('mousedown', '.example-video', hideControls);
 
 if (isMobile) {
 	$html.addClass('is-mobile is-mobile-init');

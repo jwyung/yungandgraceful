@@ -125,6 +125,9 @@ html {
 		margin-bottom: 18px;
 		padding-left: 15px;
 		padding-right: 15px;
+		@include transform(translateY(8px));
+		opacity: 0;
+		@include transition(transform 3s ease-out, opacity 3s ease-out);
 
 		@media only screen and (max-width: $mobile-small) {
 			font-size: 38px;
@@ -144,12 +147,25 @@ html {
 		padding-left: 11px;
 		padding-right: 12px;
 		padding-bottom: 1px;
+		opacity: 0;
+		@include transition(opacity 2.8s ease-out 2.2s);
 
 		@media only screen and (max-width: $mobile-small) {
 			font-size: 16px;
 			line-height: 33px;
 			padding-left: 10px;
 			padding-right: 10px;
+		}
+	}
+
+	&.animate {
+		.title {
+			@include transform(translateY(0));
+			opacity: 1;
+		}
+
+		.coming-soon {
+			opacity: 1;
 		}
 	}
 }
@@ -234,6 +250,8 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 }
 
 .example {
+	overflow: hidden;
+
 	&:before {
 		content: "";
 		position: absolute;

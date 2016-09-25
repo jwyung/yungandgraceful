@@ -1698,7 +1698,18 @@ html.modal-visible {
     font-size: 60px;
     margin-bottom: 18px;
     padding-left: 15px;
-    padding-right: 15px; }
+    padding-right: 15px;
+    -webkit-transform: translateY(8px);
+    -moz-transform: translateY(8px);
+    -ms-transform: translateY(8px);
+    -o-transform: translateY(8px);
+    transform: translateY(8px);
+    opacity: 0;
+    -webkit-transition: transform 3s ease-out, opacity 3s ease-out;
+    -moz-transition: transform 3s ease-out, opacity 3s ease-out;
+    -o-transition: transform 3s ease-out, opacity 3s ease-out;
+    -ms-transition: transform 3s ease-out, opacity 3s ease-out;
+    transition: transform 3s ease-out, opacity 3s ease-out; }
     @media only screen and (max-width: 540px) {
       .hero .title {
         font-size: 38px; } }
@@ -1712,13 +1723,28 @@ html.modal-visible {
     display: inline-block;
     padding-left: 11px;
     padding-right: 12px;
-    padding-bottom: 1px; }
+    padding-bottom: 1px;
+    opacity: 0;
+    -webkit-transition: opacity 2.8s ease-out 2.2s;
+    -moz-transition: opacity 2.8s ease-out 2.2s;
+    -o-transition: opacity 2.8s ease-out 2.2s;
+    -ms-transition: opacity 2.8s ease-out 2.2s;
+    transition: opacity 2.8s ease-out 2.2s; }
     @media only screen and (max-width: 540px) {
       .hero .coming-soon {
         font-size: 16px;
         line-height: 33px;
         padding-left: 10px;
         padding-right: 10px; } }
+  .hero.animate .title {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1; }
+  .hero.animate .coming-soon {
+    opacity: 1; }
 
 .container {
   padding-top: 175px;
@@ -1778,133 +1804,135 @@ html.modal-visible {
     .widescreen-aspect-ratio {
       padding-bottom: 0; } }
 
-.example:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 35%;
-  z-index: 1;
-  will-change: opacity;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  -ms-transition: opacity 1s;
-  transition: opacity 1s; }
-  .is-mobile .example:before {
+.example {
+  overflow: hidden; }
+  .example:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35%;
+    z-index: 1;
+    will-change: opacity;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s; }
+    .is-mobile .example:before {
+      pointer-events: none; }
+  .example:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    opacity: 0.1;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s;
+    will-change: opacity; }
+    .is-mobile .example:after {
+      pointer-events: none; }
+    @media only screen and (max-width: 640px) {
+      .example:after {
+        background-size: cover; } }
+  .example.video-loaded:after {
+    opacity: 0;
     pointer-events: none; }
-.example:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-  opacity: 0.1;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  -ms-transition: opacity 1s;
-  transition: opacity 1s;
-  will-change: opacity; }
-  .is-mobile .example:after {
+  .example.video-loaded .example-video {
+    opacity: 0.1; }
+  .example .example-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s;
+    will-change: opacity;
+    width: 100%;
+    height: 100%;
+    cursor: pointer; }
+    .is-mobile .example .example-video {
+      -webkit-transform: translateY(65%);
+      -moz-transform: translateY(65%);
+      -ms-transform: translateY(65%);
+      -o-transform: translateY(65%);
+      transform: translateY(65%); }
+    .example .example-video.mobile-playing {
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0); }
+  .example .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s; }
+    .is-mobile-init .example .container {
+      pointer-events: none; }
+    @media only screen and (max-width: 640px) {
+      .example .container {
+        position: relative; } }
+  .example .play-btn {
+    overflow: visible;
+    width: 40px;
+    height: 40px; }
+    .is-mobile-init .example .play-btn {
+      pointer-events: none; }
+  .example .play-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+    will-change: opacity, transform;
+    transition: all .3s ease-out;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
     pointer-events: none; }
-  @media only screen and (max-width: 640px) {
-    .example:after {
-      background-size: cover; } }
-.example.video-loaded:after {
-  opacity: 0;
-  pointer-events: none; }
-.example.video-loaded .example-video {
-  opacity: 0.1; }
-.example .example-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  opacity: 0;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  -ms-transition: opacity 1s;
-  transition: opacity 1s;
-  will-change: opacity;
-  width: 100%;
-  height: 100%;
-  cursor: pointer; }
-  .is-mobile .example .example-video {
-    -webkit-transform: translateY(65%);
-    -moz-transform: translateY(65%);
-    -ms-transform: translateY(65%);
-    -o-transform: translateY(65%);
-    transform: translateY(65%); }
-  .example .example-video.mobile-playing {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); }
-.example .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  -ms-transition: opacity 1s;
-  transition: opacity 1s; }
-  .is-mobile-init .example .container {
+    .example .play-icon:hover, .example .play-icon:focus {
+      text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15); }
+    .is-safari .example .play-icon {
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%); }
+    @media only screen and (max-width: 414px) {
+      .example .play-icon {
+        font-size: 65px; } }
+  .example .content {
+    width: 675px; }
+  .example .btn {
+    margin-top: 25px; }
+  .example.playing:before {
+    opacity: 0;
     pointer-events: none; }
-  @media only screen and (max-width: 640px) {
-    .example .container {
-      position: relative; } }
-.example .play-btn {
-  overflow: visible;
-  width: 40px;
-  height: 40px; }
-  .is-mobile-init .example .play-btn {
+  .example.playing.video-loaded .example-video {
+    opacity: 1;
+    cursor: pointer; }
+  .example.playing .container {
+    opacity: 0;
     pointer-events: none; }
-.example .play-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 75px;
-  will-change: opacity, transform;
-  transition: all .3s ease-out;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
-  pointer-events: none; }
-  .example .play-icon:hover, .example .play-icon:focus {
-    text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15); }
-  .is-safari .example .play-icon {
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%); }
-  @media only screen and (max-width: 414px) {
-    .example .play-icon {
-      font-size: 65px; } }
-.example .content {
-  width: 675px; }
-.example .btn {
-  margin-top: 25px; }
-.example.playing:before {
-  opacity: 0;
-  pointer-events: none; }
-.example.playing.video-loaded .example-video {
-  opacity: 1;
-  cursor: pointer; }
-.example.playing .container {
-  opacity: 0;
-  pointer-events: none; }
 
 .video-mask {
   position: absolute;
