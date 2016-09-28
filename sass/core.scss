@@ -370,7 +370,7 @@ $widescreen-aspect-ratio: 56.25%; // to maintain 16:9 aspect ratio for our 1920 
 			text-shadow: 0 5px 11px rgba(0, 0, 0, 0.18), 0 4px 15px rgba(0, 0, 0, 0.15);
 		}
 
-		.is-safari & {
+		.is-old-safari & {
 			@include transform(translateX(-50%));
 		}
 

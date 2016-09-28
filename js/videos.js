@@ -1,6 +1,7 @@
 var userAgent = navigator.userAgent;
 var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent));
 var isSafari = (/(Safari)/i).test(userAgent) && !(/(Chrome)/i).test(userAgent);
+var isOldSafari = isSafari && parseInt(userAgent.match(/Version\/(.*)\s/i)[1]) < 10;
 
 var $html = $('html');
 var $examples = $('.example');
@@ -30,6 +31,10 @@ if (isMobile) {
 
 if (isSafari) {
 	$html.addClass('is-safari');
+}
+
+if (isOldSafari) {
+	$html.addClass('is-old-safari');
 }
 
 function immediatelyReady() {
