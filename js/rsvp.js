@@ -17,7 +17,8 @@
 			$guestFieldset.find('input[name=' + guest + '-rsvp]').attr('checked', false);
 
 			$guestFieldset.find('input[name=' + guest + '-entree]').attr('disabled', true);
-			$guestFieldset.find('input[name=g1-entree]').attr('checked', false);
+			$guestFieldset.find('input[name=' + guest + '-entree]').attr('checked', false);
+			$guestFieldset.find('input[name=' + guest + '-restrictions]').attr('disabled', true);
 		}
 
 		maybeEnableSubmitBtn($guestFieldset);
@@ -30,13 +31,16 @@
 	$rsvpForm.on('change', '.item-rsvp', function(e) {
 		var $guestFieldset = getGuestFieldset.call(this);
 		var $entrees = $guestFieldset.find('.item-entree');
+		var $restrictions = $guestFieldset.find('.restrictions-field');
 
 		if ($guestFieldset.find('.item-rsvp:checked').val() === 'yes') {
 			$guestFieldset.find('.entree-content').removeClass('show-error');
 			$entrees.attr('disabled', false);
+			$restrictions.attr('disabled', false);
 		} else {
 			$entrees.attr('disabled', true);
 			$entrees.attr('checked', false);
+			$restrictions.attr('disabled', true);
 		}
 	});
 
