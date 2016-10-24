@@ -1684,7 +1684,7 @@ html.modal-visible {
   height: 100vh; }
   .hero .content {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -moz-transform: translateX(-50%) translateY(-50%);
@@ -1726,8 +1726,8 @@ html.modal-visible {
     border: 1px solid white;
     border-radius: 5px;
     display: inline-block;
-    padding-left: 15px;
-    padding-right: 16px;
+    padding-left: 12px;
+    padding-right: 14px;
     padding-bottom: 1px;
     opacity: 0;
     -webkit-transition: opacity 2.8s ease-out 1.5s;
